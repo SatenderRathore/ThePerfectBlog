@@ -18,7 +18,7 @@
       <div class="row">
         <div class="input-field col s4">
         <i class="material-icons prefix">account_circle</i>
-          <input id="username" type="text" name="username" class="validate" onchange="checkUsername()">
+          <input id="username" type="text" name="username" class="validate" onchange="checkUsername()" required>
           <label for="Username">Username</label>
         </div>
         <!-- will unable if username is already exists -->
@@ -28,7 +28,7 @@
       <div class="row">
         <div class="input-field col s4">
          <i class="material-icons prefix">email</i>
-          <input id="email" type="email" name="email" class="validate" onchange="checkEmail()">
+          <input id="email" type="email" name="email" class="validate" onchange="checkEmail()" required>
           <label for="email">Email</label>
         </div>
         </div>
@@ -38,7 +38,7 @@
       <div class="row">
         <div class="input-field col s4">
           <i class="material-icons prefix">phone</i>
-          <input id="contact" type="tel" name="contact" class="validate" onchange="checkContact()">
+          <input id="contact" type="tel" name="contact" class="validate" onchange="checkContact()" pattern="[789][0-9]{9}" maxlength="10" title="Please enter valid contact number"   required>
           <label for="icon_telephone">Telephone</label>
         </div>
       </div>
@@ -50,7 +50,7 @@
       <div class="row">
         <div class="input-field col s4">
         <i class="material-icons prefix">security</i>
-          <input id="password" type="password" name="password" class="validate">
+          <input id="password" type="password" name="password" class="validate" pattern=".{6,}" title="password length should be greater than 6" required>
           <label for="password">Password</label>
         </div>
       </div>
