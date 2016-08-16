@@ -72,14 +72,25 @@
   function checkUsername()
   {
     var username = document.getElementById("username").value;
+    
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function(){
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-        document.getElementById("username_info").innerHTML = xmlhttp.responseText;
-        //disable button if div of id username_info have some error message
-        var isEmpty = document.getElementById("username_info").innerHTML
-        
-      }
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            document.getElementById("username_info").innerHTML = xmlhttp.responseText;
+            //disable button if div of id username_info have some error message
+            var isEmptyUsername = document.getElementById("username_info").innerHTML
+            var isEmptyEmail = document.getElementById("email_info").innerHTML
+            var isEmptyContact = document.getElementById("contact_info").innerHTML
+            if((isEmptyUsername === "")&&(isEmptyEmail === "")&&(isEmptyContact === ""))
+            {
+              document.getElementById("button").disabled = false;
+            }
+            else
+            {
+              document.getElementById("button").disabled = true;
+            }
+        }
     };
     xmlhttp.open("GET","../backend/ajax/signup_username_ajax.php?username=" + username, true);
     xmlhttp.send();
@@ -89,10 +100,24 @@
     function checkEmail()
     {      
         var email = document.getElementById("email").value;
+      
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+            {
                 document.getElementById("email_info").innerHTML = xmlhttp.responseText;
+                //disable button if div of id email_info have some error message
+                var isEmptyUsername = document.getElementById("username_info").innerHTML
+                var isEmptyEmail = document.getElementById("email_info").innerHTML
+                var isEmptyContact = document.getElementById("contact_info").innerHTML
+                if((isEmptyUsername === "")&&(isEmptyEmail === "")&&(isEmptyContact === ""))
+                {
+                  document.getElementById("button").disabled = false;
+                }
+                else
+                {
+                  document.getElementById("button").disabled = true;
+                }
             }
         };
         xmlhttp.open("GET", "../backend/ajax/signup_email_ajax.php?email=" + email, true);
@@ -107,8 +132,21 @@
         var contact = document.getElementById("contact").value;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+            {
                 document.getElementById("contact_info").innerHTML = xmlhttp.responseText;
+                //disable button if div of id contact_info have some error message
+                var isEmptyUsername = document.getElementById("username_info").innerHTML
+                var isEmptyEmail = document.getElementById("email_info").innerHTML
+                var isEmptyContact = document.getElementById("contact_info").innerHTML
+                if((isEmptyUsername === "")&&(isEmptyEmail === "")&&(isEmptyContact === ""))
+                {
+                  document.getElementById("button").disabled = false;
+                }
+                else
+                {
+                  document.getElementById("button").disabled = true;
+                }
             }
         };
         xmlhttp.open("GET", "../backend/ajax/signup_contact_ajax.php?contact=" + contact, true);
