@@ -21,9 +21,10 @@
           <input id="username" type="text" name="username" class="validate" onchange="checkUsername()">
           <label for="Username">Username</label>
         </div>
-      </div>
-      <!-- will unable if username is already exists -->
+        <!-- will unable if username is already exists -->
       <div id="username_info"></div>
+      </div>
+      
       <div class="row">
         <div class="input-field col s4">
          <i class="material-icons prefix">email</i>
