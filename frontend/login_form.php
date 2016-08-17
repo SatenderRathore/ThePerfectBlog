@@ -12,7 +12,7 @@
 
     <body>
         <div class="row">
-            <form class="col s8" >
+            <form class="col s8" id="login_form" method="post" action="a.php">
               <div class="row">
                 <div class="input-field col s4">
                 <i class="material-icons prefix">email</i>
@@ -32,7 +32,7 @@
         </div>
         <!-- will unable if emailId-password combination does not match -->
         <div id="submit_result"></div>
-        <button id="button" class="btn waves-effect waves-light" type="button" name="submit" onclick="Submit()">Submit
+        <button id="button" class="btn waves-effect waves-light" type="button" name="button" onclick="submitForm()">Submit
         <i class="material-icons right">send</i>
         </button>
             </form>
@@ -75,8 +75,8 @@
          
     }
 
-    function Submit()
-    {
+    function submitForm()
+    {      
       var email = document.getElementById("email").value;
       var password = document.getElementById("password").value;
       if((email !== "") && (password !== ""))
@@ -88,8 +88,11 @@
             {
                 document.getElementById("submit_result").innerHTML = xmlhttp.responseText;
 
-                document.getElementById("email").value = "email";
-                document.getElementById("password").value = password;
+                var isEmptyResult = document.getElementById("submit_result").innerHTML;
+                if(isEmptyResult === "")
+                {
+                  document.getElementById("login_form").submit();
+                }
                 
             }
         };
