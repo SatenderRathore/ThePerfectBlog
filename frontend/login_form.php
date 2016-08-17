@@ -1,3 +1,12 @@
+<?php 
+// session_start();
+// if(isset($_SESSION['']))
+// {
+//   header(string);
+// }
+?>
+
+
 <!DOCTYPE html>
   <html>
     <head>
@@ -12,7 +21,7 @@
 
     <body>
         <div class="row">
-            <form class="col s8" id="login_form" method="post" action="a.php">
+            <form class="col s8" id="login_form" method="post" action="../backend/login/login.php">
               <div class="row">
                 <div class="input-field col s4">
                 <i class="material-icons prefix">email</i>

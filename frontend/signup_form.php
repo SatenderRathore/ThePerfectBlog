@@ -14,7 +14,7 @@
 
       
   <div class="row">
-    <form class="col s8" method="post" action="../backend/signup.php">
+    <form class="col s8" method="post" action="../backend/signup/signup.php">
       <div class="row">
         <div class="input-field col s4">
         <i class="material-icons prefix">account_circle</i>
