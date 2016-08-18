@@ -1,7 +1,7 @@
 <?php 
 include("db.php");
 
-if(isset($_POST))
+if($_POST)
 {
 	session_start();
 	
@@ -13,13 +13,27 @@ if(isset($_POST))
 	$fetch = mysqli_query($conn,$query);
 	$output = mysqli_fetch_array($fetch);
 
-	if($output['password'] == $password && $output['active_account'] == 1)
+	if($output['password'] == $password && $output['active_account'] == 0)
 	{
-		print_r("equal");
-	}	
+		$_SESSION['email'] = $email;
+		header("Location:../../frontend/blogger_account.php");
+	}
+
 	else
 	{
-		header("Location:../../frontend/login_form.php");
-	}
+		?>
+        <script> alert('Wrong Details'); window.location.href = "../../frontend/login_form.php";</script>';
+      <?php
+	}	
+	
+}
+else
+{
+
+	?>
+    <script> alert('Pleasse fill the login form'); window.location.href = "../../frontend/login_form.php";</script>';
+    <?php
+
+	// header("Location:../../frontend/login_form.php");
 }
 ?>

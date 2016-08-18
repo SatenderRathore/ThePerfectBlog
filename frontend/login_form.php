@@ -1,9 +1,9 @@
 <?php 
-// session_start();
-// if(isset($_SESSION['']))
-// {
-//   header(string);
-// }
+session_start();
+if(isset($_SESSION['email']))
+{
+  header("Location:blogger_account.php");
+}
 ?>
 
 
