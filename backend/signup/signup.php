@@ -18,7 +18,7 @@ if(isset($_POST['submit']))
 }
 else
 {
-	header("Location:../frontend/signup_form.php");
+	header("Location:../../frontend/signup_form.php");
 }	
 
 ?>

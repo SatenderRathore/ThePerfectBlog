@@ -54,7 +54,7 @@
           <label for="password">Password</label>
         </div>
       </div>
-      <button id="button" class="btn waves-effect waves-light" type="button" name="button" >Submit
+      <button id="button" class="btn waves-effect waves-light" type="submit" name="submit" >Submit
       <i class="material-icons right">send</i>
       </button>
     </form>
