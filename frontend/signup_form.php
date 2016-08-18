@@ -14,7 +14,7 @@
 
       
   <div class="row">
-    <form class="col s8" method="post" action="../backend/signup/signup.php">
+    <form id="signup" class="col s8" method="post" action="../backend/signup/signup.php">
       <div class="row">
         <div class="input-field col s4">
         <i class="material-icons prefix">account_circle</i>
@@ -54,7 +54,7 @@
           <label for="password">Password</label>
         </div>
       </div>
-      <button id="button" class="btn waves-effect waves-light" type="submit" name="submit" >Submit
+      <button id="button" class="btn waves-effect waves-light" type="button" name="button" >Submit
       <i class="material-icons right">send</i>
       </button>
     </form>
