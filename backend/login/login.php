@@ -13,7 +13,7 @@ if($_POST)
 	$fetch = mysqli_query($conn,$query);
 	$output = mysqli_fetch_array($fetch);
 		
-	if($output['password'] == $password && $output['active_account'] == 0)
+	if($output['password'] == $password && $output['active_account'] == 1)
 	{
 		$_SESSION['email'] = $email;
 		$_SESSION['blogger_id'] = $output['blogger_id'];
