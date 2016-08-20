@@ -9,13 +9,15 @@ if($_POST)
 	$password = $_POST['password'];
 	$password = md5($password);
 		
-	$query = "SELECT password,active_account FROM blogger_details WHERE email = '$email'";
+	$query = "SELECT password,active_account,blogger_id,username FROM blogger_details WHERE email = '$email'";
 	$fetch = mysqli_query($conn,$query);
 	$output = mysqli_fetch_array($fetch);
-
+		
 	if($output['password'] == $password && $output['active_account'] == 0)
 	{
 		$_SESSION['email'] = $email;
+		$_SESSION['blogger_id'] = $output['blogger_id'];
+		$_SESSION['blog_author'] = $output['username'];
 		header("Location:../../frontend/blogger_account.php");
 	}
 
