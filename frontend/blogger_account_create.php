@@ -69,6 +69,15 @@ if(!isset($_SESSION['email']))
               </div>-->
             </div>
           </div>
+          <div class="row">
+           <div class="row">
+              <div class="input-field col m10 offset-m1 l10 offset-l1 s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="blog_cat" type="text" class="validate" name="blog_cat">
+                <label for="icon_prefix">Blog Category</label>
+              </div>
+            </div>
+          </div>
 
           <div class="row">
        			<div class="row">
