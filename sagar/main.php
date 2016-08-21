@@ -60,8 +60,7 @@
 			</div>
 			<div class="card-content" style="max-height: 85px;">
 		    <p>
-				I am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of information.
-				I am convenient because I require little markup to use effectively.
+				I 
 		 	</p>
 	  		</div>
 		 	<a href="#" class="waves-effect waves-light btn " style="margin:15px">Read More</a>
@@ -77,57 +76,6 @@
 				</div>
 			</div>
 		</div>
-		
-		<div class="card hoverable large article">
-			<div class="card-image">
-				<img src="../images/sample-1.jpg">
-				<span class="card-title">Card Title</span>
-			</div>
-			<div class="card-content" style="max-height: 85px;">
-		    <p>
-				I am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of information.
-				I am convenient because I require little markup to use effectively.
-		 	</p>
-	  		</div>
-		 	<a href="#" class="waves-effect waves-light btn " style="margin:15px">Read More</a>
-
-			<div class="card-action" style="padding:10px 20px; height:50px;">
-				<div class="left">
-				<div class="left"><img src="#" alt="img"></div>
-				<div class="right" style="margin-left:10px">
-					<div ><a href="#" style="font-size:0.75em; color: #757575">Sagar Keshri</a></div>
-					<div ><a href="#" style="font-size:0.75em; color: #757575">Date</a></div>
-
-				</div>
-				</div>
-			</div>
-		</div>
-		<div class="card hoverable large article">
-			<div class="card-image">
-				<img src="../images/sample-1.jpg">
-				<span class="card-title">Card Title</span>
-			</div>
-			<div class="card-content" style="max-height: 85px;">
-		    <p>
-				I am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of information.
-				I am convenient because I require little markup to use effectively.
-		 	</p>
-	  		</div>
-		 	<a href="#" class="waves-effect waves-light btn " style="margin:15px">Read More</a>
-
-			<div class="card-action" style="padding:10px 20px; height:50px;">
-				<div class="left">
-				<div class="left"><img src="#" alt="img"></div>
-				<div class="right" style="margin-left:10px">
-					<div ><a href="#" style="font-size:0.75em; color: #757575">Sagar Keshri</a></div>
-					<div ><a href="#" style="font-size:0.75em; color: #757575">Date</a></div>
-
-				</div>
-				</div>
-			</div>
-		</div>
-
-		
 	</div>
 </body>
 

@@ -7,6 +7,6 @@ $exec = mysqli_query($conn, $query);
 // print_r("hello");
 // print_r($blog_id);
 printf("%d",$exec);
-// print_r("Request approved successfully");
+print_r("Request approved successfully");
 
 ?>

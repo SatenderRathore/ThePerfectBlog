@@ -76,27 +76,51 @@ while($row = mysqli_fetch_row($exec))
 	// print_r($row[7] . ", ");
 	// print_r($row[8] . ", ");
 	// 
-	
-
-
 	echo'<div class="container">';
 		echo'<div class="card hoverable large article">';
 			echo'<div class="card-image">';
 				echo'<img src="../images/sample-1.jpg">';
-				echo'<span class="card-title">' . $row[2] . '</span>';
+				echo'<span class="card-title">'.$row[2].'</span>';
 			echo'</div>';
-			echo'<div class="card-content">';
+			echo'<div class="card-content" style="max-height: 85px;">';
 		    echo'<p>';
-		    echo $row[3];
-				
+			echo $row[3]; 
 		 	echo'</p>';
 	  		echo'</div>';
-			echo'<div class="card-action" style="padding:10px 20px;">';
-				echo'<a href="#">Read More</a>';
+		 	echo'<a href="#" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
+
+			echo'<div class="card-action" style="padding:10px 20px; height:50px;">';
+				echo'<div class="left">';
+				echo'<div class="left"><img src="#" alt="img"></div>';
+				echo'<div class="right" style="margin-left:10px">';
+					echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[5].'</a></div>';
+					echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[8].'</a></div>';
+
+				echo'</div>';
+				echo'</div>';
 			echo'</div>';
 		echo'</div>';
-
 	echo'</div>';
+
+
+	// echo'<div class="container">';
+	// 	echo'<div class="card hoverable large article">';
+	// 		echo'<div class="card-image">';
+	// 			echo'<img src="../images/sample-1.jpg">';
+	// 			echo'<span class="card-title">' . $row[2] . '</span>';
+	// 		echo'</div>';
+	// 		echo'<div class="card-content">';
+	// 	    echo'<p>';
+	// 	    echo $row[3];
+				
+	// 	 	echo'</p>';
+	//   		echo'</div>';
+	// 		echo'<div class="card-action" style="padding:10px 20px;">';
+	// 			echo'<a href="#">Read More</a>';
+	// 		echo'</div>';
+	// 	echo'</div>';
+
+	// echo'</div>';
 }
 ?>	
 </body>
