@@ -28,39 +28,46 @@ $exec = mysqli_query($conn, $query);
 <title>Main Page</title>
   <link rel="stylesheet" type="text/css" href="../materialize/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../materialize/css/main.css">
 </head>
 
 <body>
-	<div class="navbar-fixed">
-		<nav>
-		    <div class="nav-wrapper indigo">
-				<a href="#!" class="brand-logo" style="padding-left:20px;" >TPB</a>
-				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-				<ul class="right hide-on-med-and-down">
-					<li><a href="main.php">Home</a></li>
-					<li><a href="#">Sign Up</a></li>
-					<li><a href="#">Sign In</a></li>
-					<li><a href="#"><i class="material-icons" id="search" onclick="activate()">search</i></a></li>
-					<form class="right" id="search_with_details" style="display:none;">
-				        <div class="input-field">
-				          <input id="search" type="search" required>
-				          <label for="search"><i class="material-icons">search</i></label>
-				          <i class="material-icons">close</i>
-				        </div>
-				    </form>
-				</ul>
-				<ul class="side-nav" id="mobile-demo">
-					<li><a href="main.php">Home</a></li>
-					<li><a href="#">Sign Up</a></li>
-					<li><a href="#">Sign In</a></li>
-					<li><a href="#"><i class="material-icons" id="search">search</i></a></li>
-					
-				</ul>
-		    </div>
-	  	</nav>
-	</div>
+	  <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper indigo">
+            <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="index.php">Home</a></li>
+              <li><a href="signup_form.php">Sign Up</a></li>
+              <li><a href="login_form.php">Sign In</a></li>
+              <li><a href="#"><i class="material-icons" id="search" onclick="activate()">search</i></a></li>
+              <form class="right" id="search_with_details" style="display:none;">
+                <div class="input-field">
+                  <input id="search" type="search" required>
+                  <label for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+              </form>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+              <li></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="signup_form.php">Sign Up</a></li>
+              <li><a href="login_form.php">Sign In</a></li>
+                  <!--<li class="search ">
+                    <div class="search-wrapper card">
+                        <input id="search"><i class="material-icons">search</i>
+                        <div class="search-results" style="display:none"></div>
+                    </div>
+                  </li>-->          
+            </ul>
+          </div>
+        </nav>
+      </div>
+
 <?php 
 
 
@@ -79,7 +86,7 @@ while($row = mysqli_fetch_row($exec))
 	echo'<div class="container">';
 		echo'<div class="card hoverable large article">';
 			echo'<div class="card-image">';
-				echo'<img src="../images/sample-1.jpg">';
+				echo'<img class="responsive-img" src="../images/sample-1.jpg">';
 				echo'<span class="card-title">'.$row[2].'</span>';
 			echo'</div>';
 			echo'<div class="card-content" style="max-height: 85px;">';
@@ -91,10 +98,10 @@ while($row = mysqli_fetch_row($exec))
 
 			echo'<div class="card-action" style="padding:10px 20px; height:50px;">';
 				echo'<div class="left">';
-				echo'<div class="left"><img src="#" alt="img"></div>';
+				echo'<div class="left" style="height:32; width:32;"><img src="#" alt="img" height="32" width="32"></div>';
 				echo'<div class="right" style="margin-left:10px">';
-					echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[5].'</a></div>';
-					echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[8].'</a></div>';
+					echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[5].'</a></div>';
+					echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[8].'</a></div>';
 
 				echo'</div>';
 				echo'</div>';
