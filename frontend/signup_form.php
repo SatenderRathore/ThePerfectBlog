@@ -52,10 +52,10 @@
 
       
       <div class="container">
-        <div class="form">
+        <div class="form ">
           <form id="signup" class="" method="post" action="../backend/signup/signup.php">
             <div class="row">
-              <div class="input-field col md6">
+              <div class="input-field col m6 push-m3 l6 push-l3 s8 push-s2">
               <i class="material-icons prefix">account_circle</i>
                 <input id="username" type="text" name="username" class="validate" onchange="checkUsername()" required>
                 <label for="Username">Username</label>
@@ -65,7 +65,7 @@
             </div>
             
             <div class="row">
-              <div class="input-field col md6">
+              <div class="input-field col m6 offset-m3 l6 offset-l3 s8 offset-s2">
                <i class="material-icons prefix">email</i>
                 <input id="email" type="email" name="email" class="validate" onchange="checkEmail()" required>
                 <label for="email">Email</label>
@@ -75,7 +75,7 @@
               <div id="email_info"></div>
                       
             <div class="row">
-              <div class="input-field col md6">
+              <div class="input-field col m6 offset-m3 l6 offset-l3 s8 offset-s2">
                 <i class="material-icons prefix">phone</i>
                 <input id="contact" type="tel" name="contact" class="validate" onchange="checkContact()" pattern="[789][0-9]{9}" maxlength="10" title="Please enter valid contact number"   required>
                 <label for="icon_telephone">Telephone</label>
@@ -87,15 +87,15 @@
 
             
             <div class="row">
-              <div class="input-field col md6">
+              <div class="input-field col m6 offset-m3 l6 offset-l3 s8 offset-s2">
               <i class="material-icons prefix">security</i>
                 <input id="password" type="password" name="password" class="validate" pattern=".{6,}" title="password length should be greater than 6" required>
                 <label for="password">Password</label>
               </div>
             </div>
-            <button id="button" class="btn waves-effect waves-light center" type="submit" name="submit" >Submit
+            <center><button id="button" class="btn waves-effect waves-light" type="submit" name="submit" >Submit
             <i class="material-icons right">send</i>
-            </button>
+            </button></center>
           </form>
       </div>
       </div>

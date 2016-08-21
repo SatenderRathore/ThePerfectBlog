@@ -60,8 +60,7 @@
 			</div>
 			<div class="card-content" style="max-height: 85px;">
 		    <p>
-				I am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of informI am a very simple card. I am good at containing small bits of information.
-				I am convenient because I require little markup to use effectively.
+				I 
 		 	</p>
 	  		</div>
 		 	<a href="#" class="waves-effect waves-light btn " style="margin:15px">Read More</a>
@@ -77,6 +76,7 @@
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 		
 		<div class="card hoverable large article">
 			<div class="card-image">
@@ -129,6 +129,8 @@
 		</div>
 
 		
+=======
+>>>>>>> d35d3b67c2e117b7ae8d2a63a4915222810fdf2b
 	</div>
 </body>
 

@@ -55,7 +55,7 @@
 	<div class="container">
 		<div class="card-details hoverable large article" >
 			<div class="card-image">
-				<img src="../images/sample-1.jpg">
+				<img class="responsive-img" src="../images/sample-1.jpg">
 				<span class="card-title"><h4>Aliquam lorem ante dapibus in</h4></span>
 			</div>
 			<div class="card-action" style="padding:10px 20px; height:50px;">
