@@ -97,5 +97,6 @@ if(!isset($_SESSION['email']))
         $(".button-collapse").sideNav();        
       });
 
+
     </script>
   </html>
