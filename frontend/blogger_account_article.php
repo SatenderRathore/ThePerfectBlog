@@ -85,13 +85,5 @@
 </body>
 
 <script src="../materialize/js/materialize.min.js"></script>
-<script>
-	function activate()
-	{
-		document.getElementById('search').style.display="none";
-		document.getElementById('search_with_details').style.display="block";
-	}
-	
-</script>
 
 </html>
