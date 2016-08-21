@@ -76,8 +76,8 @@ while($row = mysqli_fetch_row($exec))
 {
   $blog_id = $row[0];
 
-  echo'<div class="container" id="'.$blog_id.'">';
-    echo'<div class="card hoverable large article">';
+  echo'<div class="container" >';
+    echo'<div class="card hoverable large article" id="'.$blog_id.'">';
       echo'<div class="card-image">';
         echo'<img src="../images/sample-1.jpg">';
         echo'<span class="card-title">'.$row[2].'</span>';
