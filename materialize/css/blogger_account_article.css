@@ -1,0 +1,38 @@
+.article {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.card-details {
+
+  position: relative;
+  margin: 0.5rem 0 1rem 0;
+  background-color: #fff;
+  transition: box-shadow .25s;
+  border-radius: 2px;
+}
+
+.card-image {
+	max-height: 50%;
+	overflow: hidden;
+}
+
+.card-title{
+  color: #fff;
+  position: absolute;
+  top: 33%;
+  left: 0;
+  padding: 20px;
+  font-weight: 300;
+  font-size: 24px;
+
+}
+
+.card-content {
+  font-size: 16px;
+  padding: 0px 20px 20px 20px;
+  border-radius: 0 0 2px 2px;
+  line-height: 28px;
+  margin: 0;
+  color: #757575 !important;
+}

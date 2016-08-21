@@ -96,7 +96,7 @@ while($row = mysqli_fetch_row($exec))
 	  		echo'</div>';
 		 	echo'<a href="#" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
 
-			echo'<div class="card-action" style="padding:10px 20px; height:50px;">';
+			echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
 				echo'<div class="left">';
 				echo'<div class="left" style="height:32; width:32;"><img src="#" alt="img" height="32" width="32"></div>';
 				echo'<div class="right" style="margin-left:10px">';

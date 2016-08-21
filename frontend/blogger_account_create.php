@@ -52,39 +52,55 @@ if(!isset($_SESSION['email']))
         </nav>
       </div>
 
-      <div class="container">
-        <div class="card hoverable large article">
-          <div class="card-image">
-            <img class="responsive-img" src="../images/sample-1.jpg">
-            <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content" style="max-height: 85px;">
-            <p>
-            I 
-          </p>
-            </div>
-          <a href="#" class="waves-effect waves-light btn " style="margin:15px">Read More</a>
 
-          <div class="card-action" style="padding:5px 20px; height:50px;">
-            <div class="left">
-              <div class="left" style="height:32; width:32;"><img src="#" alt="img" height="32" width="32"></div>
-              <div class="right" style="margin-left:10px">
-                <div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">Sagar Keshri</a></div>
-                <div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">July 10, 2015</a></div>
-
+      <div class="container" style="margin-top:50px">
+        <form class="col s12" id="blog" method="post" action="../backend/bloggers/bloggers_data.php">
+         <div class="row">
+      	    <div class="row">
+              <div class="input-field col m10 offset-m1 l10 offset-l1 s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="blog_title" type="text" class="validate" name="blog_title">
+                <label for="icon_prefix">Blog title</label>
               </div>
-            </div>
-            <div class="right">
-              <a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
-              <a href="#" class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;"><i class="material-icons">delete</i></a>
-
+              <!--<div class="input-field col s6">
+                <i class="material-icons prefix">phone</i>
+                <input id="blog_cat" type="tel" class="validate" name="blog_cat">
+                <label for="icon_telephone">Blog category</label>
+              </div>-->
             </div>
           </div>
-        </div>
+
+          <div class="row">
+       			<div class="row">
+        			<div class="input-field col m10 offset-m1 l10 offset-l1 s12 ">
+          				<i class="material-icons prefix">mode_edit</i>
+          				<textarea id="textarea" class="materialize-textarea" name="blog_desc"></textarea>
+          				<label for="icon_prefix2">Blog description</label>
+        			</div>
+      			</div>
+          </div>
+
+          <div class="row">
+              <div class="file-field input-field col m10 offset-m1 l10 offset-l1 s12 ">
+                <div class="btn">
+                  <span>File</span>
+                  <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+            </div>
+          </div>
+           
+          <center><button class="btn waves-effect waves-light" type="submit" name="submit">Submit
+            <i class="material-icons right">send</i></center>
+          </button>
+
+        </form>
       </div>
+        
 
-
- 
+      
     </body>
     <script src="../materialize/js/materialize.min.js"></script>
     <script>

@@ -54,7 +54,7 @@
         <div class="form ">
           <form id="signup" class="" method="post" action="../backend/signup/signup.php">
             <div class="row">
-              <div class="input-field col m6 push-m3 l6 push-l3 s8 push-s2">
+              <div class="input-field col m6 offset-m3 l6 offset-l3 s8 offset-s2">
               <i class="material-icons prefix">account_circle</i>
                 <input id="username" type="text" name="username" class="validate" onchange="checkUsername()" required>
                 <label for="Username">Username</label>
