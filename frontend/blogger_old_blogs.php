@@ -6,6 +6,14 @@ if(!isset($_SESSION['email']))
 {
 	header("Location:login_form.php");
 }
+
+$blogger_id = $_SESSION['blogger_id'];
+
+$query = "SELECT * FROM blog_master WHERE blogger_id = '$blogger_id' ORDER BY updation_date DESC";
+$exec  = mysqli_query($conn, $query);
+// printf("%d",$exec); 
+
+
 //--------------------------------------------
 
 ?>
@@ -51,38 +59,45 @@ if(!isset($_SESSION['email']))
           </div>
         </nav>
       </div>
+<!--  -->
+<?php
 
-      <div class="container">
-        <div class="card hoverable large article">
-          <div class="card-image">
-            <img class="responsive-img" src="../images/sample-1.jpg">
-            <span class="card-title">Card Title</span>
-          </div>
-          <div class="card-content" style="max-height: 85px;">
-            <p>
-            I 
-          </p>
-            </div>
-          <a href="#" class="waves-effect waves-light btn " style="margin:15px">Read More</a>
+while($row = mysqli_fetch_row($exec))
+{
 
-          <div class="card-action" style="padding:5px 20px; height:50px;">
-            <div class="left">
-              <div class="left" style="height:32; width:32;"><img src="#" alt="img" height="32" width="32"></div>
-              <div class="right" style="margin-left:10px">
-                <div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">Sagar Keshri</a></div>
-                <div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">July 10, 2015</a></div>
+      echo'<div class="container">';
+        echo'<div class="card hoverable large article">';
+          echo'<div class="card-image">';
+            echo'<img class="responsive-img" src="../images/sample-1.jpg">';
+            echo'<span class="card-title">'.$row[2].'</span>';
+          echo'</div>';
+          echo'<div class="card-content" style="max-height: 85px;">';
+            echo'<p>';
+            echo $row[3]; 
+          echo'</p>';
+            echo'</div>';
+          echo'<a href="#" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
 
-              </div>
-            </div>
-            <div class="right">
-              <a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>
-              <a href="#" class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;"><i class="material-icons">delete</i></a>
+          echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
+            echo'<div class="left">';
+              echo'<div class="left" style="height:32; width:32;"><img src="#" alt="img" height="32" width="32"></div>';
+              echo'<div class="right" style="margin-left:10px">';
+                echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[5].'</a></div>';
+                echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[8].'</a></div>';
 
-            </div>
-          </div>
-        </div>
-      </div>
+              echo'</div>';
+            echo'</div>';
+            echo'<div class="right">';
+              echo'<a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
+              echo'<a href="#" class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;"><i class="material-icons">delete</i></a>';
 
+            echo'</div>';
+          echo'</div>';
+        echo'</div>';
+      echo'</div>';
+}
+?>
+<!--  -->
 
  
     </body>
