@@ -68,12 +68,12 @@
 
 			<div class="card-action" style="padding:10px 20px; height:50px;">
 				<div class="left">
-				<div class="left"><img src="#" alt="img"></div>
-				<div class="right" style="margin-left:10px">
-					<div ><a href="#" style="font-size:0.75em; color: #757575">Sagar Keshri</a></div>
-					<div ><a href="#" style="font-size:0.75em; color: #757575">Date</a></div>
+					<div class="left" style="height:32; width:32;"><img src="#" alt="img" height="32" width="32"></div>
+					<div class="right" style="margin-left:10px">
+						<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">Sagar Keshri</a></div>
+						<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">July 10, 2015</a></div>
 
-				</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -93,15 +93,16 @@
 
 			<div class="card-action" style="padding:10px 20px; height:50px;">
 				<div class="left">
-				<div class="left"><img src="#" alt="img"></div>
-				<div class="right" style="margin-left:10px">
-					<div ><a href="#" style="font-size:0.75em; color: #757575">Sagar Keshri</a></div>
-					<div ><a href="#" style="font-size:0.75em; color: #757575">Date</a></div>
+					<div class="left" style="height:32; width:32;"><img src="#" alt="img" height="32" width="32"></div>
+					<div class="right" style="margin-left:10px">
+						<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">Sagar Keshri</a></div>
+						<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">July 10, 2015</a></div>
 
-				</div>
+					</div>
 				</div>
 			</div>
 		</div>
+
 		<div class="card hoverable large article">
 			<div class="card-image">
 				<img src="../images/sample-1.jpg">
@@ -117,12 +118,12 @@
 
 			<div class="card-action" style="padding:10px 20px; height:50px;">
 				<div class="left">
-				<div class="left"><img src="#" alt="img"></div>
-				<div class="right" style="margin-left:10px">
-					<div ><a href="#" style="font-size:0.75em; color: #757575">Sagar Keshri</a></div>
-					<div ><a href="#" style="font-size:0.75em; color: #757575">Date</a></div>
+					<div class="left" style="height:32; width:32;"><img src="#" alt="img" height="32" width="32"></div>
+					<div class="right" style="margin-left:10px">
+						<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">Sagar Keshri</a></div>
+						<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">July 10, 2015</a></div>
 
-				</div>
+					</div>
 				</div>
 			</div>
 		</div>
