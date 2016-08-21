@@ -64,7 +64,9 @@ $exec  = mysqli_query($conn, $query);
 
 while($row = mysqli_fetch_row($exec))
 {
+
       $blog_id = $row[0];
+      $_SESSION['blog_id'] = $blog_id;
       echo'<div class="container">';
         echo'<div class="card hoverable large article" id="'.$blog_id.'">';
           echo'<div class="card-image">';
@@ -88,7 +90,7 @@ while($row = mysqli_fetch_row($exec))
               echo'</div>';
             echo'</div>';
             echo'<div class="right">';
-              echo'<a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
+              echo'<a href="edit_blog.php" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
               echo'<a class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
 
             echo'</div>';
@@ -130,6 +132,8 @@ while($row = mysqli_fetch_row($exec))
       xmlhttp.open("GET","../backend/ajax/delete_blog_by_blogger.php?blog_id=" + blogId, true);
       xmlhttp.send();
       }
+
+
 
     </script>
   </html>
