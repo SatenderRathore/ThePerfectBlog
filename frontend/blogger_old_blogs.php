@@ -64,9 +64,9 @@ $exec  = mysqli_query($conn, $query);
 
 while($row = mysqli_fetch_row($exec))
 {
-
+      $blog_id = $row[0];
       echo'<div class="container">';
-        echo'<div class="card hoverable large article">';
+        echo'<div class="card hoverable large article" id="'.$blog_id.'">';
           echo'<div class="card-image">';
             echo'<img class="responsive-img" src="../images/sample-1.jpg">';
             echo'<span class="card-title">'.$row[2].'</span>';
@@ -89,7 +89,7 @@ while($row = mysqli_fetch_row($exec))
             echo'</div>';
             echo'<div class="right">';
               echo'<a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
-              echo'<a href="#" class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;"><i class="material-icons">delete</i></a>';
+              echo'<a class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
 
             echo'</div>';
           echo'</div>';
@@ -111,6 +111,25 @@ while($row = mysqli_fetch_row($exec))
       $(document).ready(function(){
         $(".button-collapse").sideNav();        
       });
+
+      function deleteBlog(blogId)
+      {
+        // alert(blogId);
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            document.getElementById(blogId).innerHTML = xmlhttp.responseText;
+            setTimeout(function(){ document.getElementById(blogId).style.display = "none"; }, 3000);
+            //stop time 
+            //then display none in div in id
+            // document.getElementById(blogId).innerHTML = "";
+            
+        }
+        };
+      xmlhttp.open("GET","../backend/ajax/delete_blog_by_blogger.php?blog_id=" + blogId, true);
+      xmlhttp.send();
+      }
 
     </script>
   </html>
