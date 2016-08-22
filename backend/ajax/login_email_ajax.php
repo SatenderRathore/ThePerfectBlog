@@ -9,7 +9,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 
 if(!($output['email'] == $email))
 {
-	print_r("email is not registered, You can't login using this email");
+	print_r("E-mail is not registered !");
 }
 
 ?>

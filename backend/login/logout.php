@@ -6,7 +6,7 @@ unset($_SESSION['email']);
 if(session_destroy())
 {
 	?>
-    <script> alert('logOut Successfully'); window.location.href = "../../frontend/login_form.php";</script>';
+    <script> alert('logOut Successfully'); window.location.href = "../../frontend/signup_form.php";</script>';
 	<?php
 }
 

@@ -1,3 +1,26 @@
 .form{
 	margin: 50px 0;
 }
+
+h4.head {
+	text-align: center;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-left: 20px; 
+}
+
+h4 {
+
+    line-height: 110%;
+    margin: 1.14rem 0 0.912rem 0;
+}
+
+.err{
+	font-size: 0.8rem;
+	position: relative;
+	display: inline-block;
+	top: -1rem;
+	left: 3.5rem;
+	color: #FF4081;
+}

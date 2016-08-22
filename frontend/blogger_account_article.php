@@ -2,10 +2,10 @@
 <head>
 <title>Full Blog</title>
   <link rel="stylesheet" type="text/css" href="../materialize/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
+  <link rel="stylesheet" type="text/css" href="../materialize/css/blogger_account_article.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="../materialize/css/blogger_account_article.css">
   <script>
   	$(document).ready(function(){
     $(".button-collapse").sideNav();        
@@ -47,7 +47,7 @@
       </div>
 
 	<div class="container">
-		<div class="card-details hoverable large article" >
+		<div class="card-details hoverable large article"  >
 			<div class="card-image">
 				<img class="responsive-img" src="../images/sample-1.jpg">
 				<span class="card-title"><h4>Aliquam lorem ante dapibus in</h4></span>
@@ -67,7 +67,7 @@
 
 				</div>
 			</div>
-			<div class="card-content" >
+			<div class="card-content flow-text" >
 			    <p>
 					In auctor lobortis lacus. In auctor lobortis lacus. Cras non dolor. Praesent egestas tristique nibh. Maecenas malesuada.
 

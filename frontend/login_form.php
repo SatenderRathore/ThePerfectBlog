@@ -108,56 +108,56 @@ if(isset($_SESSION['email']))
   <script type="text/javascript">
     
     function checkEmail()
-    {
-      var email = document.getElementById("email").value;
-      
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
-            {
-                document.getElementById("email_info").innerHTML = xmlhttp.responseText;
-                //disable button if div of id email_info have some error message
-                var isEmptyEmail = document.getElementById("email_info").innerHTML
-                if((isEmptyEmail === ""))
-                {
-                  document.getElementById("button").disabled = false;
-                }
-                else
-                {
-                  document.getElementById("button").disabled = true;
-                }
-            }
-        };
-        xmlhttp.open("GET", "../backend/ajax/login_email_ajax.php?email=" + email, true);
-        xmlhttp.send();
-         
-    }
+      {
+        var email = document.getElementById("email").value;
+        
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+              if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+              {
+                  document.getElementById("email_info").innerHTML = xmlhttp.responseText;
+                  //disable button if div of id email_info have some error message
+                  var isEmptyEmail = document.getElementById("email_info").innerHTML
+                  if((isEmptyEmail === ""))
+                  {
+                    document.getElementById("button").disabled = false;
+                  }
+                  else
+                  {
+                    document.getElementById("button").disabled = true;
+                  }
+              }
+          };
+          xmlhttp.open("GET", "../backend/ajax/login_email_ajax.php?email=" + email, true);
+          xmlhttp.send();
+           
+      }
 
     function submitForm()
-    {      
-      var email = document.getElementById("email").value;
-      var password = document.getElementById("password").value;
-      if((email !== "") && (password !== ""))
-       {
-        // alert("in");
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
-            {
-                document.getElementById("submit_result").innerHTML = xmlhttp.responseText;
-
-                var isEmptyResult = document.getElementById("submit_result").innerHTML;
-                if(isEmptyResult === "")
-                {
-                  document.getElementById("login_form").submit();
-                }
-                
-            }
-        };
-        xmlhttp.open("GET", "../backend/ajax/login_submit_ajax.php?email=" + email + "&password=" + password, true);
-        xmlhttp.send();
+      {      
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        if((email !== "") && (password !== ""))
+         {
+          // alert("in");
+          var xmlhttp = new XMLHttpRequest();
+          xmlhttp.onreadystatechange = function() {
+              if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+              {
+                  document.getElementById("submit_result").innerHTML = xmlhttp.responseText;
+                  console.log(document.getElementById("submit_result").innerHTML);
+                  var isEmptyResult = document.getElementById("submit_result").innerHTML;
+                  if(isEmptyResult === "")
+                  {
+                    document.getElementById("login_form").submit();
+                  }
+                  
+              }
+          };
+          xmlhttp.open("GET", "../backend/ajax/login_submit_ajax.php?email=" + email + "&password=" + password, true);
+          xmlhttp.send();
+        }
+        // alert(password);
       }
-      // alert(password);
-    }
 
   </script>

@@ -24,7 +24,7 @@ if($_POST)
 	else
 	{
 		?>
-        <script> alert('Wrong Details'); window.location.href = "../../frontend/login_form.php";</script>';
+        <script> alert('Wrong Details'); window.location.href = "../../frontend/signup_form.php";</script>';
       <?php
 	}	
 	
@@ -33,7 +33,7 @@ else
 {
 
 	?>
-    <script> alert('Pleasse fill the login form'); window.location.href = "../../frontend/login_form.php";</script>';
+    <script> alert('Please fill the login form'); window.location.href = "../../frontend/signup_form.php";</script>';
     <?php
 
 	// header("Location:../../frontend/login_form.php");
