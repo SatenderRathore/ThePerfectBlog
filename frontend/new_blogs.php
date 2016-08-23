@@ -84,7 +84,7 @@ $exec = mysqli_query($conn,$query);
     echo'<div class="container" >';
       echo'<div class="card hoverable large article" id="'.$blog_id.'">';
         echo'<div class="card-image">';
-          echo'<img src="../images/sample-1.jpg">';
+          echo'<img src="showimage.php?blog_id='.$blog_id.'>';
           echo'<span class="card-title">'.$row[2].'</span>';
         echo'</div>';
         echo'<div class="card-content" style="max-height: 85px;">';
@@ -93,7 +93,7 @@ $exec = mysqli_query($conn,$query);
         echo'</p>';
           echo'</div>';
        echo'<a class="btn-floating btn-medium waves-effect waves-light left green " style="margin-left:15px; margin-top:15px;" onclick="approveBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">mode_edit</i>/a>';
-        echo'<a class="btn-floating btn-medium waves-effect waves-light left red" style="margin-left:15px; margin-top:15px;" onclick="approveBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
+        echo'<a class="btn-floating btn-medium waves-effect waves-light left red" style="margin-left:15px; margin-top:15px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
 
         echo'<div class="card-action" style="padding:10px 20px; height:50px;">';
           echo'<div class="left">';
@@ -163,4 +163,24 @@ $exec = mysqli_query($conn,$query);
       xmlhttp.open("GET","../backend/ajax/approve_new_blog.php?blog_id=" + blogId, true);
       xmlhttp.send();
   }
+
+  function deleteBlog(blogId)
+      {
+        // alert(blogId);
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            document.getElementById(blogId).innerHTML = xmlhttp.responseText;
+            setTimeout(function(){ document.getElementById(blogId).style.display = "none"; }, 3000);
+            //stop time 
+            //then display none in div in id
+            // document.getElementById(blogId).innerHTML = "";
+            
+        }
+        };
+      xmlhttp.open("GET","../backend/ajax/delete_blog_by_admin.php?blog_id=" + blogId, true);
+      xmlhttp.send();
+      }
+
 </script>
