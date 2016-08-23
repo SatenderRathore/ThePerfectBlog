@@ -70,7 +70,7 @@ while($row = mysqli_fetch_row($exec))
       echo'<div class="container">';
         echo'<div class="card hoverable large article" id="'.$blog_id.'" style="margin-top:40px; margin-bottom:40px;">';
           echo'<div class="card-image">';
-            echo'<img class="responsive-img" src="../images/sample-1.jpg">';
+            echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'">';
             echo'<span class="card-title">'.$row[2].'</span>';
           echo'</div>';
           echo'<div class="card-content " style="max-height: 85px;">';
