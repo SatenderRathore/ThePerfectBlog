@@ -86,7 +86,7 @@ while($row = mysqli_fetch_row($exec))
   echo'<div class="container" >';
     echo'<div class="card hoverable large article" id="'.$blog_id.'">';
       echo'<div class="card-image">';
-        echo'<img src="../images/sample-1.jpg">';
+        echo'<img src="showimage.php?blog_id='.$blog_id.'">';
         echo'<span class="card-title">'.$row[2].'</span>';
       echo'</div>';
       echo'<div class="card-content" style="max-height: 85px;">';
