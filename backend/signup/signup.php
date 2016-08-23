@@ -13,8 +13,10 @@ if(isset($_POST['submit']))
 	$insert_query = "INSERT INTO blogger_details (username,email,contact,password,creation_date,updation_date) VALUES('$username','$email','$contact','$password','$current_date','$current_date')";
     mysqli_query($conn, $insert_query);
 
+?>
+        <script> alert('congratulations you are successfully registered'); window.location.href = "../../frontend/";</script>';
+<?php
     
-    print_r("congratulations you are successfully registered");
 }
 else
 {

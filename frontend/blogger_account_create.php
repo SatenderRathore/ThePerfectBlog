@@ -54,7 +54,7 @@ if(!isset($_SESSION['email']))
 
 
       <div class="container" style="margin-top:50px">
-        <form class="col s12" id="blog" method="post" action="../backend/bloggers/bloggers_data.php">
+        <form class="col s12" id="blog" method="post" action="../backend/bloggers/bloggers_data.php" enctype="multipart/form-data">
          <div class="row">
       	    <div class="row">
               <div class="input-field col m10 offset-m1 l10 offset-l1 s12">
@@ -93,7 +93,7 @@ if(!isset($_SESSION['email']))
               <div class="file-field input-field col m10 offset-m1 l10 offset-l1 s12 ">
                 <div class="btn">
                   <span>File</span>
-                  <input type="file">
+                  <input type="file" name="image">
                 </div>
                 <div class="file-path-wrapper">
                   <input class="file-path validate" type="text">
