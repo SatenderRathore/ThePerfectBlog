@@ -123,7 +123,7 @@
             <!-- will unable if emailId-password combination does not match -->
             <div class="err" id="submit_result_login"></div>
 
-            <center><button id="buttonlogin" class="btn waves-effect waves-light " style="margin-bottom:20px;" type="submit" name="submit" onclick="submitForm()">Submit
+            <center><button id="buttonlogin" class="btn waves-effect waves-light " style="margin-bottom:20px;" type="button" name="button" onclick="submitForm()">Submit
             <i class="material-icons right">send</i>
             </button></center>
           </form>
