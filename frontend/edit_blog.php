@@ -10,7 +10,7 @@ if(!isset($_SESSION['email']))
 // $blog_title       = $_SESSION['blog_title'];
 // $blog_category    = $_SESSION['blog_cat'];
 // $blog_description = $_SESSION['blog_desc'];
-$blog_id = $_SESSION['blog_id'];
+$blog_id = $_GET['blog_id'];
 $query  = "SELECT * FROM blog_master WHERE blog_id = '$blog_id'";
 $exec   = mysqli_query($conn, $query);
 $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);

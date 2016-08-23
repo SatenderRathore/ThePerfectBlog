@@ -90,7 +90,7 @@ while($row = mysqli_fetch_row($exec))
               echo'</div>';
             echo'</div>';
             echo'<div class="right">';
-              echo'<a href="edit_blog.php" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
+              echo'<a href="edit_blog.php?blog_id='.$blog_id.'" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
               echo'<a class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
 
             echo'</div>';
