@@ -102,8 +102,8 @@ if(!isset($_SESSION['email']))
           </div>
            
           <center><button class="btn waves-effect waves-light" type="submit" name="submit">Submit
-            <i class="material-icons right">send</i></center>
-          </button>
+            <i class="material-icons right">send</i></button></center>
+          <!-- </button> -->
 
         </form>
       </div>

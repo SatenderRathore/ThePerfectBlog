@@ -11,6 +11,7 @@ if(!isset($_SESSION['email']))
 // $blog_category    = $_SESSION['blog_cat'];
 // $blog_description = $_SESSION['blog_desc'];
 $blog_id = $_GET['blog_id'];
+$_SESSION['blog_id'] = $blog_id;
 $query  = "SELECT * FROM blog_master WHERE blog_id = '$blog_id'";
 $exec   = mysqli_query($conn, $query);
 $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
@@ -67,7 +68,7 @@ $blog_description = $output['blog_desc'];
 
 
       <div class="container" style="margin-top:50px">
-        <form class="col s12" id="blog" method="post" action="../backend/bloggers/bloggers_data.php">
+        <form class="col s12" id="blog" method="post" action="../backend/bloggers/edit_blog.php" enctype="multipart/form-data">
          <div class="row">
       	    <div class="row">
               <div class="input-field col m10 offset-m1 l10 offset-l1 s12">
@@ -106,7 +107,7 @@ $blog_description = $output['blog_desc'];
               <div class="file-field input-field col m10 offset-m1 l10 offset-l1 s12 ">
                 <div class="btn">
                   <span>File</span>
-                  <input type="file">
+                  <input type="file" name="image">
                 </div>
                 <div class="file-path-wrapper">
                   <input class="file-path validate" type="text">
@@ -115,10 +116,11 @@ $blog_description = $output['blog_desc'];
           </div>
            
           <center><button class="btn waves-effect waves-light" type="submit" name="submit">Submit
-            <i class="material-icons right">send</i></center>
-          </button>
+            <i class="material-icons right">send</i></button></center>
+          <!-- </button> -->
 
         </form>
+
       </div>
         
 
