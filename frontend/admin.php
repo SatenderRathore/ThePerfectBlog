@@ -1,3 +1,15 @@
+<?php
+include("../backend/db.php");
+//--------checking for session---------------
+session_start();
+if(!isset($_SESSION['email']))
+{
+	header("Location:signup_form.php");
+}
+
+?>
+
+
 <html>
   <head>
 	<title>Admin</title>

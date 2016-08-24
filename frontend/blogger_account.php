@@ -4,7 +4,7 @@ include("../backend/db.php");
 session_start();
 if(!isset($_SESSION['email']))
 {
-	header("Location:login_form.php");
+	header("Location:signup_form.php");
 }
 
 $blogger_id = $_SESSION['blogger_id'];
