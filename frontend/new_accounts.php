@@ -49,43 +49,10 @@ if(!isset($_SESSION['email']))
         </nav>
       </div>
 
-
-
-<?php 
-
-$query = "SELECT * FROM blogger_details WHERE active_account = '0'";
-$exec = mysqli_query($conn,$query);
-// session_start();
-while($row = mysqli_fetch_row(($exec)))
-{
-  
-    // print_r($row);
-  $id = $row[0];
-  echo '<div id=' . $id . ' >';
-  echo '<h1>hello </h1>';
-  print_r($row[0] . ", ");
-  print_r($row[1] . ", ");
-  print_r($row[2] . ", ");
-  print_r($row[3] . ", ");
-  print_r($row[6] . ", ");
-
-  // $_SESSION['blogger_id'] = $id;
-  //echo '<a href = "../backend/bloggers/approve_new_blogger.php">approve request</a>';
-      echo '<a onclick="approveRequest('.$id.')" href="javascript:void(0);">approve </a>';  
-
-echo '</div>';
-echo '<div id="a"></div>';  
-}
-
-
-?>
 <?php
 
 $query = "SELECT * FROM blogger_details WHERE active_account = '0'";
 $exec = mysqli_query($conn,$query);
-// session_start();
-
-
 
       echo'<div class="container">';
         echo'<table class="responsive-table highlight" style="margin-top:30px;">';
@@ -112,14 +79,14 @@ while($row = mysqli_fetch_row(($exec)))
   $updation_date = $row[7];
   
           
-            echo'<tr>';
-              echo'<td>'.$blogger_id.'</td>';
+            echo'<tr id="'.$blogger_id.'">';
+              echo'<td id="'.$blogger_id.'">'.$blogger_id.'</td>';
               echo'<td>'.$username.'</td>';
               echo'<td>'.$email.'</td>';
               echo'<td>'.$contact.'</td>';
               echo'<td>'.$updation_date.'</td>';
-              echo'<td><a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">done</i></a></td>';
-              echo'<td><a href="#" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">delete</i></a></td>';
+              echo'<td><a onclick="approveRequest('.$blogger_id.')" href="javascript:void(0);" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">done</i></a></td>';
+              echo'<td><a onclick="deleteRequest('.$blogger_id.')" href="javascript:void(0);" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">delete</i></a></td>';
                           
             echo'</tr>';
  }              
@@ -127,7 +94,7 @@ while($row = mysqli_fetch_row(($exec)))
         echo'</table>';
 
       echo'</div>';
-
+      
       ?>
       
     </body>
@@ -154,6 +121,8 @@ while($row = mysqli_fetch_row(($exec)))
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
         {
             document.getElementById(id).innerHTML = xmlhttp.responseText;
+            setTimeout(function(){ document.getElementById(id).style.display = "none"; }, 3000);
+
             //stop time 
             //then display none in div in id
             // document.getElementById(id).innerHTML = "";
@@ -163,4 +132,25 @@ while($row = mysqli_fetch_row(($exec)))
     xmlhttp.open("GET","../backend/ajax/approve_new_blogger.php?blogger_id=" + id, true);
     xmlhttp.send();
 	}
+
+  function deleteRequest(id)
+  {
+    // var username = document.getElementById("username").value;
+    
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            document.getElementById(id).innerHTML = xmlhttp.responseText;
+            setTimeout(function(){ document.getElementById(id).style.display = "none"; }, 3000);
+
+            //stop time 
+            //then display none in div in id
+            // document.getElementById(id).innerHTML = "";
+            
+        }
+    };
+    xmlhttp.open("GET","../backend/ajax/delete_new_blogger.php?blogger_id=" + id, true);
+    xmlhttp.send();
+  }
 </script>
