@@ -79,11 +79,13 @@
 
 					Sed fringilla mauris sit amet nibh. Nunc nonummy metus. Integer tincidunt. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis.
 			 	</p>
-	  		</div>
+	  	</div>
+      <div class="chip" style="margin-left:20px;margin-bottom:20px">Category</div>
 		</div>	
 	</div>
 </body>
 
 <script src="../materialize/js/materialize.min.js"></script>
+
 
 </html>

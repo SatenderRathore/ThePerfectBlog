@@ -48,6 +48,57 @@ if(!isset($_SESSION['email']))
           </div>
         </nav>
       </div>
+
+      <div class="container">
+        <table class="responsive-table highlight" style="margin-top:30px;">
+          <thead>
+            <tr>
+                <th data-field="id">Id</th>
+                <th data-field="name">User Name</th>
+                <th data-field="email">E-mail</th>
+                <th data-field="contact">Contact</th>
+                <th data-field="date">Date</th>
+                <th data-field="access"><center>Access</center></th>
+
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Sagar_keshri</td>
+              <td>sagarkeshri26@gmail.com</td>
+              <td>966246226</td>
+              <td>20-08-2016</td>
+              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">done</i></a></td>
+              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+                          
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Sagar_keshri</td>
+              <td>sagarkeshri26@gmail.com</td>
+              <td>966246226</td>
+              <td>20-08-2016</td>
+              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">done</i></a></td>
+              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+                          
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Sagar_keshri</td>
+              <td>sagarkeshri26@gmail.com</td>
+              <td>966246226</td>
+              <td>20-08-2016</td>
+              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">done</i></a></td>
+              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
+                          
+            </tr>
+            
+          </tbody>
+        </table>
+
+      </div>
       
     </body>
     <script src="../materialize/js/materialize.min.js"></script>
@@ -55,6 +106,8 @@ if(!isset($_SESSION['email']))
       $(document).ready(function(){
         $(".button-collapse").sideNav();        
       });
+
+      
     </script>
   </html>
         

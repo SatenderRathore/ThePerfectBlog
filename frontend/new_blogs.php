@@ -99,8 +99,10 @@ $exec = mysqli_query($conn,$query);
         echo $row[3]; 
         echo'</p>';
           echo'</div>';
+
        echo'<a class="btn-floating btn-medium waves-effect waves-light left green " style="margin-left:15px; margin-top:15px;" onclick="approveBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">mode_edit</i>/a>';
         echo'<a class="btn-floating btn-medium waves-effect waves-light left red" style="margin-left:15px; margin-top:15px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
+
 
         echo'<div class="card-action" style="padding:10px 20px; height:50px;">';
           echo'<div class="left">';
