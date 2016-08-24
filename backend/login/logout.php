@@ -1,5 +1,4 @@
 <?php
-print_r("logout");
 
 session_start();
 unset($_SESSION['email']);

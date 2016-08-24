@@ -1,6 +1,13 @@
 <?php 
 include("db.php");
 
+session_start();
+if(!isset($_SESSION['email']))
+{
+  header("Location:signup_form.php");
+}
+
+
 $query = "SELECT * FROM blog_master WHERE blog_is_active = '0'";
 $exec = mysqli_query($conn,$query);
 

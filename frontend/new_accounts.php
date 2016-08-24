@@ -1,3 +1,13 @@
+<?php 
+include("db.php");
+
+session_start();
+if(!isset($_SESSION['email']))
+{
+  header("Location:signup_form.php");
+}
+?>
+
  <!DOCTYPE html>
   <html>
     <head>
