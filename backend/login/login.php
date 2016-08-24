@@ -8,8 +8,6 @@ if($_POST)
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$password = md5($password);
-print_r($email);
-print_r($password);
 
 	if($email == 'admin@gmail.com' && $password == '21232f297a57a5a743894a0e4a801fc3')//admin login 
 	{
@@ -29,7 +27,7 @@ print_r($password);
 			$_SESSION['email'] = $email;
 			$_SESSION['blogger_id'] = $output['blogger_id'];
 			$_SESSION['blog_author'] = $output['username'];
-			// header("Location:../../frontend/blogger_account.php");
+			header("Location:../../frontend/blogger_account.php");
 		}
 
 		else
