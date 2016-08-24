@@ -2,11 +2,18 @@
 include("../backend/db.php");
 //--------checking for session---------------
 session_start();
-if(!isset($_SESSION['email']))
-{
-	header("Location:signup_form.php");
-}
 
+if($_SESSION['email'] == 'admin@gmail.com')
+{
+  header("Location:admin.php");
+}
+else
+{
+  if(!isset($_SESSION['email']))
+  {
+  	header("Location:signup_form.php");
+  }
+}
 $blogger_id = $_SESSION['blogger_id'];
 
 $query = "SELECT * FROM blog_master WHERE blogger_id = '$blogger_id' ORDER BY updation_date DESC";
