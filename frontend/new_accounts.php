@@ -49,56 +49,86 @@ if(!isset($_SESSION['email']))
         </nav>
       </div>
 
-      <div class="container">
-        <table class="responsive-table highlight" style="margin-top:30px;">
-          <thead>
-            <tr>
-                <th data-field="id">Id</th>
-                <th data-field="name">User Name</th>
-                <th data-field="email">E-mail</th>
-                <th data-field="contact">Contact</th>
-                <th data-field="date">Date</th>
-                <th data-field="access"><center>Access</center></th>
 
-            </tr>
-          </thead>
 
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Sagar_keshri</td>
-              <td>sagarkeshri26@gmail.com</td>
-              <td>966246226</td>
-              <td>20-08-2016</td>
-              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">done</i></a></td>
-              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
-                          
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Sagar_keshri</td>
-              <td>sagarkeshri26@gmail.com</td>
-              <td>966246226</td>
-              <td>20-08-2016</td>
-              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">done</i></a></td>
-              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
-                          
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Sagar_keshri</td>
-              <td>sagarkeshri26@gmail.com</td>
-              <td>966246226</td>
-              <td>20-08-2016</td>
-              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">done</i></a></td>
-              <td><a href="#" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">delete</i></a></td>
-                          
-            </tr>
-            
-          </tbody>
-        </table>
+<?php 
 
-      </div>
+$query = "SELECT * FROM blogger_details WHERE active_account = '0'";
+$exec = mysqli_query($conn,$query);
+// session_start();
+while($row = mysqli_fetch_row(($exec)))
+{
+  
+    // print_r($row);
+  $id = $row[0];
+  echo '<div id=' . $id . ' >';
+  echo '<h1>hello </h1>';
+  print_r($row[0] . ", ");
+  print_r($row[1] . ", ");
+  print_r($row[2] . ", ");
+  print_r($row[3] . ", ");
+  print_r($row[6] . ", ");
+
+  // $_SESSION['blogger_id'] = $id;
+  //echo '<a href = "../backend/bloggers/approve_new_blogger.php">approve request</a>';
+      echo '<a onclick="approveRequest('.$id.')" href="javascript:void(0);">approve </a>';  
+
+echo '</div>';
+echo '<div id="a"></div>';  
+}
+
+
+?>
+<?php
+
+$query = "SELECT * FROM blogger_details WHERE active_account = '0'";
+$exec = mysqli_query($conn,$query);
+// session_start();
+
+
+
+      echo'<div class="container">';
+        echo'<table class="responsive-table highlight" style="margin-top:30px;">';
+          echo'<thead>';
+            echo'<tr>';
+                echo'<th data-field="id">Blogger Id</th>';
+                echo'<th data-field="name">User Name</th>';
+                echo'<th data-field="email">E-mail</th>';
+                echo'<th data-field="contact">Contact</th>';
+                echo'<th data-field="date">Date</th>';
+                echo'<th data-field="access"><center>Access</center></th>';
+
+            echo'</tr>';
+          echo'</thead>';
+          echo'<tbody>';
+
+while($row = mysqli_fetch_row(($exec)))
+{
+  $blogger_id = $row[0];
+  $username = $row[1];
+  $email = $row[2];
+  $contact = $row[3];
+  $creation_date = $row[6];
+  $updation_date = $row[7];
+  
+          
+            echo'<tr>';
+              echo'<td>'.$blogger_id.'</td>';
+              echo'<td>'.$username.'</td>';
+              echo'<td>'.$email.'</td>';
+              echo'<td>'.$contact.'</td>';
+              echo'<td>'.$updation_date.'</td>';
+              echo'<td><a href="#" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">done</i></a></td>';
+              echo'<td><a href="#" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">delete</i></a></td>';
+                          
+            echo'</tr>';
+ }              
+          echo'</tbody>';
+        echo'</table>';
+
+      echo'</div>';
+
+      ?>
       
     </body>
     <script src="../materialize/js/materialize.min.js"></script>
@@ -113,35 +143,6 @@ if(!isset($_SESSION['email']))
         
 
 
-<?php 
-include("db.php");
-
-$query = "SELECT * FROM blogger_details WHERE active_account = '0'";
-$exec = mysqli_query($conn,$query);
-// session_start();
-while($row = mysqli_fetch_row(($exec)))
-{
-	
-		// print_r($row);
-	$id = $row[0];
-	echo '<div id=' . $id . ' >';
-	echo '<h1>hello </h1>';
-	print_r($row[0] . ", ");
-	print_r($row[1] . ", ");
-	print_r($row[2] . ", ");
-	print_r($row[3] . ", ");
-	print_r($row[6] . ", ");
-
-	// $_SESSION['blogger_id'] = $id;
-	//echo '<a href = "../backend/bloggers/approve_new_blogger.php">approve request</a>';
-      echo '<a onclick="approveRequest('.$id.')" href="javascript:void(0);">approve </a>';  
-
-echo '</div>';
-echo '<div id="a"></div>';	
-}
-
-
-?>
 
 <script type="text/javascript">
 	function approveRequest(id)
