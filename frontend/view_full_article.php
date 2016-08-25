@@ -1,20 +1,12 @@
 <?php
 include("db.php");
 
-session_start();
-if(!isset($_SESSION['email']))
-{
-  header("Location:signup_form.php");
-}
 
-$blogger_id = $_SESSION['blogger_id'];
-//echo "$blogger_id";
 $blog_id = $_GET['blog_id'];
 
 $query = "SELECT * FROM blog_master WHERE blog_id='$blog_id'";
 $exec = mysqli_query($conn, $query);
 $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
-$current_blogger_id= $output['blogger_id'];
 // print_r($blog_id);
 /*
 $blog_id = $_GET['blog_id'];
@@ -38,9 +30,9 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
   <script>
-    $(document).ready(function(){
+  	$(document).ready(function(){
     $(".button-collapse").sideNav();        
-  });
+	});
 
 
 
@@ -48,7 +40,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 </head>
 
 <body>
-  <div class="navbar-fixed">
+	<div class="navbar-fixed">
         <nav>
           <div class="nav-wrapper indigo">
             <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
@@ -85,20 +77,20 @@ $blog_title = $output['blog_title'];
 $blog_desc  = $output['blog_desc'];
 $blog_category = $output['blog_category'];
 
-  echo'<div class="container">';
-    echo'<div class="card hoverable xlarge article" id="'.$blog_id.'" >';
-      echo'<div class="card-image">';
-        echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'">';
-        echo'<span class="card-title"><h4>'.$blog_title.'</h4></span>';
-      echo'</div>';
-      
-      echo'<div class="card-content" >';
-         echo'<p>';
+	echo'<div class="container">';
+		echo'<div class="card hoverable xlarge article" id="'.$blog_id.'" >';
+			echo'<div class="card-image">';
+				echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'">';
+				echo'<span class="card-title"><h4>'.$blog_title.'</h4></span>';
+			echo'</div>';
+			
+			echo'<div class="card-content" >';
+			   echo'<p>';
           echo $blog_desc;
-        echo'</p>';
-      echo'</div>';
+			 	echo'</p>';
+	  	echo'</div>';
       echo'<div class="chip" id="category" style="margin-left:20px;margin-bottom:70px;">'.$blog_category.'</div>';
-    
+		
       echo'<div class="card-action">';
         echo'<div class="left">';
           echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
@@ -108,56 +100,13 @@ $blog_category = $output['blog_category'];
 
           echo'</div>';
         echo'</div>';
-        echo'<div class="right" id="change_article">';
-          echo'<a href="edit_blog.php?blog_id='.$blog_id.'" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
-          echo'<a class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
-
-        echo'</div>';
+        
       echo'</div>';
     echo'</div> ';
-  echo'</div>';
+	echo'</div>';
   ?>
 </body>
 
 <script src="../materialize/js/materialize.min.js"></script>
-<script>
-    function deleteBlog(blogId)
-      {
-        // alert(blogId);
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function(){
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-          {
-              document.getElementById(blogId).innerHTML = xmlhttp.responseText;
-              console.log(xmlhttp.responseText);
-              setTimeout(function(){ document.getElementById(blogId).style.display = "none"; }, 3000);
-              //stop time 
-              //then display none in div in id
-              // document.getElementById(blogId).innerHTML = "";
-              
-          }
-        };
-      xmlhttp.open("GET","../backend/ajax/delete_blog_by_blogger.php?blog_id=" + blogId, true);
-      xmlhttp.send();
-      }
-
-    // give edit options to allowed users only !!!! 
-
-    var current_blogger_id = "<?php echo $current_blogger_id ?>";
-    var blogger_id = "<?php echo $blogger_id ?>";
-    if(blogger_id === current_blogger_id)
-    {
-      document.getElementById("change_article").style.display="block";
-    }
-    else
-    {
-      document.getElementById("change_article").style.display="none";
-    }
-
-    //................................
-
-
-</script>
-
 
 </html>

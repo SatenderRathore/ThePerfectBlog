@@ -61,7 +61,7 @@
                 <label for="Username">Username</label>
               </div>
               <!-- will unable if username is already exists -->
-            <div id="username_info"></div>
+              <div class="err" id="username_info"></div>
             </div>
             
             <div class="row">
@@ -69,22 +69,20 @@
                <i class="material-icons prefix">email</i>
                 <input id="email" type="email" name="email" class="validate" onchange="checkEmail()" placeholder="Enter the email address" required>
                 <label for="email">Email</label>
-              </div>
-              </div>
+              </div>              
               <!-- will unable if email is already exists -->
-              <div id="email_info"></div>
-                      
+              <div class="err" id="email_info"></div>
+            </div>
+
             <div class="row">
               <div class="input-field col m11 l11  s12 ">
                 <i class="material-icons prefix">phone</i>
                 <input id="contact" type="tel" name="contact" class="validate" onchange="checkContact()" pattern="[789][0-9]{9}" maxlength="11" title="Please enter valid contact number" placeholder="How can anyone contact you ?"   required>
                 <label for="icon_telephone">Telephone</label>
               </div>
+              <!-- will unable if contact is already registered -->
+              <div class="err" id="contact_info"></div>
             </div>
-
-            <!-- will unable if contact is already registered -->
-            <div id="contact_info"></div>
-
             
             <div class="row">
               <div class="input-field col m11 l11  s12 ">

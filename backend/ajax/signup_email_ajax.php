@@ -10,7 +10,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 // print_r($output['email']);
 if($output['email'] == $email && $email != "")
 {
-	print_r("email is already registered, Signup using another email id");
+	print_r("E-mail already registered !");
 }
 
 ?>
