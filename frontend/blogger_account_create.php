@@ -15,6 +15,7 @@ if(!isset($_SESSION['email']))
   <html>
     <head>
       <link rel="stylesheet" type="text/css" href="../materialize/css/materialize.min.css">
+      <link rel="stylesheet" type="text/css" href="../materialize/css/tags/materialize-tags.min.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
@@ -73,7 +74,8 @@ if(!isset($_SESSION['email']))
            <div class="row">
               <div class="input-field col m10 offset-m1 l10 offset-l1 s12">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="blog_cat" type="text" class="validate" name="blog_cat">
+                <input id="blog_cat" type="text" class="validate" name="blog_cat" data-role="materialtags">
+
                 <label for="icon_prefix">Blog Category</label>
               </div>
             </div>
@@ -96,7 +98,7 @@ if(!isset($_SESSION['email']))
                   <input type="file" name="image">
                 </div>
                 <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
+                  <input class="file-path validate" type="text" placeholder="please give image of size 900px X 300px">
                 </div>
             </div>
           </div>
@@ -112,6 +114,7 @@ if(!isset($_SESSION['email']))
       
     </body>
     <script src="../materialize/js/materialize.min.js"></script>
+    <script src="../materialize/tags/js/materialize-tags.min.js"></script>
     <script>
       function activate()
       {
@@ -121,6 +124,6 @@ if(!isset($_SESSION['email']))
       $(document).ready(function(){
         $(".button-collapse").sideNav();        
       });
-
+      
     </script>
   </html>
