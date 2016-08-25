@@ -4544,25 +4544,25 @@ small {
   cursor: pointer;
 }
 
-.card.small, .card.medium, .card.large {
+.card.small, .card.medium, .card.large, .card.xlarge {
   position: relative;
 }
 
-.card.small .card-image, .card.medium .card-image, .card.large .card-image {
+.card.small .card-image, .card.medium .card-image, .card.large .card-image, .card.xlarge .card-image {
   max-height: 60%;
   overflow: hidden;
 }
 
-.card.small .card-image + .card-content, .card.medium .card-image + .card-content, .card.large .card-image + .card-content {
+.card.small .card-image + .card-content, .card.medium .card-image + .card-content, .card.large .card-image + .card-content, .card.xlarge .card-image + .card-content {
   max-height: 40%;
 }
 
-.card.small .card-content, .card.medium .card-content, .card.large .card-content {
+.card.small .card-content, .card.medium .card-content, .card.large .card-content, .card.xlarge .card-content {
   max-height: 100%;
   overflow: hidden;
 }
 
-.card.small .card-action, .card.medium .card-action, .card.large .card-action {
+.card.small .card-action, .card.medium .card-action, .card.large .card-action, .card.xlarge .card-action {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -4580,7 +4580,8 @@ small {
 .card.large {
   height: 500px;
 }
-
+.card.xlarge{
+}
 .card.horizontal {
   display: -webkit-flex;
   display: -ms-flexbox;

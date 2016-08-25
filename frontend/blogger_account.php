@@ -85,11 +85,11 @@ while($row = mysqli_fetch_row($exec))
             echo $row[3]; 
           echo'</p>';
             echo'</div>';
-          echo'<a href="#" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
+          echo'<a href="blogger_account_article.php?blog_id='.$blog_id.'" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
 
           echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
             echo'<div class="left">';
-              echo'<div class="left" style="height:32; width:32;"><img src="#" alt="img" height="32" width="32"></div>';
+              echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
               echo'<div class="right" style="margin-left:10px">';
                 echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[5].'</a></div>';
                 echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[8].'</a></div>';

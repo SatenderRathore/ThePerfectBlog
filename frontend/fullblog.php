@@ -74,7 +74,7 @@ $blog_desc  = $output['blog_desc'];
 			echo'</div>';
 			echo'<div class="card-action" style="padding:10px 20px; height:50px;">';
 				echo'<div class="left">';
-					echo'<div class="left" style="height:32; width:32;"><img src="#" alt="img" height="32" width="32"></div>';
+					echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
 					echo'<div class="right" style="margin-left:10px">';
 						echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">Sagar Keshri</a></div>';
 						echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">July 10, 2015</a></div>';

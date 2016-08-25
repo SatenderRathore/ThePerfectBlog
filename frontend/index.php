@@ -70,7 +70,7 @@ $exec = mysqli_query($conn, $query);
 
 <?php 
 
-
+	
 while($row = mysqli_fetch_row($exec))
 {
 	// print_r($row[0] . ", ");
@@ -84,34 +84,38 @@ while($row = mysqli_fetch_row($exec))
 	// print_r($row[8] . ", ");
 	// 
 
-	$blog_id =$row[0];
-	echo'<div class="container">';
-		echo'<div class="card hoverable large article">';
-			echo'<div class="card-image">';
-				echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'">';
-				echo'<span class="card-title">'.$row[2].'</span>';
-			echo'</div>';
-			echo'<div class="card-content" style="max-height: 85px;">';
-		    echo'<p>';
-			echo $row[3]; 
-		 	echo'</p>';
-	  		echo'</div>';
-		 	echo'<a href="blogger_account_article.php?blog_id='.$blog_id.'" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
-
-			echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
-				echo'<div class="left">';
-				echo'<div class="left" style="height:32; width:32;"><img src="#" alt="img" height="32" width="32"></div>';
-				echo'<div class="right" style="margin-left:10px">';
-					echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[5].'</a></div>';
-					echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[8].'</a></div>';
-
+	if($row[6]=='1')	
+	{
+		$blog_id =$row[0];
+		echo'<div class="container">';
+			echo'<div class="card hoverable large article">';
+				echo'<div class="card-image">';
+					echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'">';
+					echo'<span class="card-title">'.$row[2].'</span>';
 				echo'</div>';
+				echo'<div class="card-content" style="max-height: 85px;">';
+			    echo'<p>';
+				echo $row[3]; 
+			 	echo'</p>';
+		  		echo'</div>';
+			 	echo'<a href="blogger_account_article.php?blog_id='.$blog_id.'" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
+
+				echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
+					echo'<div class="left">';
+					echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
+					echo'<div class="right" style="margin-left:10px">';
+						echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[5].'</a></div>';
+						echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[8].'</a></div>';
+
+					echo'</div>';
+					echo'</div>';
 				echo'</div>';
 			echo'</div>';
 		echo'</div>';
-	echo'</div>';
+	}
 
-
+	
+	
 	// echo'<div class="container">';
 	// 	echo'<div class="card hoverable large article">';
 	// 		echo'<div class="card-image">';

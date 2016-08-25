@@ -106,7 +106,7 @@ $exec = mysqli_query($conn,$query);
 
         echo'<div class="card-action" style="padding:10px 20px; height:50px;">';
           echo'<div class="left">';
-          echo'<div class="left"><img src="#" alt="img"></div>';
+          echo'<div class="left"><img src="../images/blogicon.jpg" alt="img"></div>';
           echo'<div class="right" style="margin-left:10px">';
             echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[5].'</a></div>';
             echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[8].'</a></div>';
