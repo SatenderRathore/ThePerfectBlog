@@ -34,6 +34,13 @@ $blog_description = $output['blog_desc'];
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style>
+        .materialize-tags{
+          margin-left:3rem;
+        }
+        
+
+      </style>
     </head>
 
     <body>
@@ -87,7 +94,7 @@ $blog_description = $output['blog_desc'];
            <div class="row">
               <div class="input-field col m10 offset-m1 l10 offset-l1 s12">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="blog_cat" type="text" class="validate" name="blog_cat">
+                <input id="blog_cat" type="text" class="validate" name="blog_cat" >
                 <label for="icon_prefix">Blog Category</label>
               </div>
             </div>

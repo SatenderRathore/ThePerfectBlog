@@ -15,12 +15,12 @@ if(!isset($_SESSION['email']))
   <html>
     <head>
       <link rel="stylesheet" type="text/css" href="../materialize/css/materialize.min.css">
-      <link rel="stylesheet" type="text/css" href="../materialize/css/tags/materialize-tags.min.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
     </head>
 
     <body>
@@ -60,7 +60,7 @@ if(!isset($_SESSION['email']))
       	    <div class="row">
               <div class="input-field col m10 offset-m1 l10 offset-l1 s12">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="blog_title" type="text" class="validate" name="blog_title">
+                <input id="blog_title" type="text" class="validate" name="blog_title" placeholder="Enter Blog Title">
                 <label for="icon_prefix">Blog title</label>
               </div>
               <!--<div class="input-field col s6">
@@ -74,7 +74,7 @@ if(!isset($_SESSION['email']))
            <div class="row">
               <div class="input-field col m10 offset-m1 l10 offset-l1 s12">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="blog_cat" type="text" class="validate" name="blog_cat" data-role="materialtags">
+                <input id="blog_cat" type="text" name="blog_cat" placeholder="Enter Blog Category">
 
                 <label for="icon_prefix">Blog Category</label>
               </div>
@@ -85,7 +85,7 @@ if(!isset($_SESSION['email']))
        			<div class="row">
         			<div class="input-field col m10 offset-m1 l10 offset-l1 s12 ">
           				<i class="material-icons prefix">mode_edit</i>
-          				<textarea id="textarea" class="materialize-textarea" name="blog_desc"></textarea>
+          				<textarea id="textarea" class="materialize-textarea" name="blog_desc" placeholder="Enter Blog Description"></textarea>
           				<label for="icon_prefix2">Blog description</label>
         			</div>
       			</div>
@@ -114,7 +114,6 @@ if(!isset($_SESSION['email']))
       
     </body>
     <script src="../materialize/js/materialize.min.js"></script>
-    <script src="../materialize/tags/js/materialize-tags.min.js"></script>
     <script>
       function activate()
       {

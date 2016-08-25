@@ -81,6 +81,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 
 $blog_title = $output['blog_title'];
 $blog_desc  = $output['blog_desc'];
+$blog_category = $output['blog_category'];
 
 	echo'<div class="container">';
 		echo'<div class="card hoverable xlarge article" id="'.$blog_id.'" >';
@@ -94,7 +95,7 @@ $blog_desc  = $output['blog_desc'];
           echo $blog_desc;
 			 	echo'</p>';
 	  	echo'</div>';
-      echo'<div class="chip" style="margin-left:20px;margin-bottom:70px;">Category</div>';
+      echo'<div class="chip" id="category" style="margin-left:20px;margin-bottom:70px;">'.$blog_category.'</div>';
 		
       echo'<div class="card-action">';
         echo'<div class="left">';
