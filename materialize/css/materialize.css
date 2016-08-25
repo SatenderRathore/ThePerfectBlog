@@ -4568,6 +4568,10 @@ small {
   left: 0;
   right: 0;
 }
+.card.xlarge .card-action{
+  max-height: 50px;
+  bottom: 15px;
+}
 
 .card.small {
   height: 300px;
@@ -4580,8 +4584,7 @@ small {
 .card.large {
   height: 500px;
 }
-.card.xlarge{
-}
+
 .card.horizontal {
   display: -webkit-flex;
   display: -ms-flexbox;

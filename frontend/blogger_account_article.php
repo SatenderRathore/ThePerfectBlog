@@ -7,6 +7,7 @@ if(!isset($_SESSION['email']))
   header("Location:signup_form.php");
 }
 
+//$blogger_id = $_SESSION['blogger_id'];
 $blog_id = $_GET['blog_id'];
 
 $query = "SELECT * FROM blog_master WHERE blog_id='$blog_id'";
@@ -82,7 +83,7 @@ $blog_title = $output['blog_title'];
 $blog_desc  = $output['blog_desc'];
 
 	echo'<div class="container">';
-		echo'<div class="card hoverable xlarge article"  >';
+		echo'<div class="card hoverable xlarge article" id="'.$blog_id.'" >';
 			echo'<div class="card-image">';
 				echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'">';
 				echo'<span class="card-title"><h4>'.$blog_title.'</h4></span>';
@@ -95,7 +96,7 @@ $blog_desc  = $output['blog_desc'];
 	  	echo'</div>';
       echo'<div class="chip" style="margin-left:20px;margin-bottom:70px;">Category</div>';
 		
-      echo'<div class="card-action" style="padding:10px 20px; height:50px;">';
+      echo'<div class="card-action">';
         echo'<div class="left">';
           echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
           echo'<div class="right" style="margin-left:10px">';
@@ -105,8 +106,8 @@ $blog_desc  = $output['blog_desc'];
           echo'</div>';
         echo'</div>';
         echo'<div class="right">';
-          echo'<a href=""edit_blog.php?blog_id='.$blog_id.'" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
-          echo'<a class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;" onclick="deleteBlog('.$blog_id.') href="javascript:void(0);"><i class="material-icons">delete</i></a>';
+          echo'<a href="edit_blog.php?blog_id='.$blog_id.'" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
+          echo'<a class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
 
         echo'</div>';
       echo'</div>';
@@ -122,15 +123,16 @@ $blog_desc  = $output['blog_desc'];
         // alert(blogId);
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-        {
-            document.getElementById(blogId).innerHTML = xmlhttp.responseText;
-            setTimeout(function(){ document.getElementById(blogId).style.display = "none"; }, 3000);
-            //stop time 
-            //then display none in div in id
-            // document.getElementById(blogId).innerHTML = "";
-            
-        }
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+          {
+              document.getElementById(blogId).innerHTML = xmlhttp.responseText;
+              console.log(xmlhttp.responseText);
+              setTimeout(function(){ document.getElementById(blogId).style.display = "none"; }, 3000);
+              //stop time 
+              //then display none in div in id
+              // document.getElementById(blogId).innerHTML = "";
+              
+          }
         };
       xmlhttp.open("GET","../backend/ajax/delete_blog_by_blogger.php?blog_id=" + blogId, true);
       xmlhttp.send();
