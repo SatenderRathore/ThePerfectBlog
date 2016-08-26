@@ -50,8 +50,8 @@ if(isset($_POST['submit']))
 
 //----------------------this is for image-------------------------- 
 
-    
-    print_r("your blog is submitted successfully");
-
+    ?>
+    <script>alert("your blog is submitted successfully");</script>
+    <?php
 }
 ?>

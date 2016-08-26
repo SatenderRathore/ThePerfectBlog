@@ -112,11 +112,6 @@ while($row = mysqli_fetch_row($exec))
     </body>
     <script src="../materialize/js/materialize.min.js"></script>
     <script>
-      function activate()
-      {
-        document.getElementById('search').style.display="none";
-        document.getElementById('search_with_details').style.display="block";
-      }
       $(document).ready(function(){
         $(".button-collapse").sideNav();        
       });

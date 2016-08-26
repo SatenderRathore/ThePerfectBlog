@@ -36,6 +36,7 @@ $exec = mysqli_query($conn, $query);
 </head>
 
 <body>
+	<div id="not_login">
 	  <div class="navbar-fixed">
         <nav>
           <div class="nav-wrapper indigo">
@@ -43,14 +44,14 @@ $exec = mysqli_query($conn, $query);
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="index.php">Home</a></li>
-              <li><a href="signup_form.php">Sign Up</a></li>
-              <li><a href="login_form.php">Sign In</a></li>
+              <li><a href="signup_form.php">Enter</a></li>
+              <li><a href="#">Contact Us</a></li>
               <li><a href="#"><i class="material-icons" id="search" onclick="activate()">search</i></a></li>
               <form class="right" id="search_with_details" style="display:none;">
                 <div class="input-field">
                   <input id="search" type="search" required>
                   <label for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
+                  <i class="material-icons" onclick="deactivate()">close</i>
                 </div>
               </form>
             </ul>
@@ -58,8 +59,8 @@ $exec = mysqli_query($conn, $query);
               <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
               <li></li>
               <li><a href="index.php">Home</a></li>
-              <li><a href="signup_form.php">Sign Up</a></li>
-              <li><a href="login_form.php">Sign In</a></li>
+              <li><a href="signup_form.php">Enter</a></li>
+              <li><a href="#">Contact Us</a></li>
                   <!--<li class="search ">
                     <div class="search-wrapper card">
                         <input id="search"><i class="material-icons">search</i>
@@ -70,6 +71,37 @@ $exec = mysqli_query($conn, $query);
           </div>
         </nav>
       </div>
+    </div>
+    <div id="login" style="display:none;">
+      <div class="navbar-fixed" >
+        <nav>
+          <div class="nav-wrapper indigo">
+            <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="index.php">Home</a></li>
+              <li><a href="blogger_account.php">My Articles</a></li>
+              <li><a href="blogger_account_create.php">Create</a></li>
+              <li><a href="../backend/login/logout.php">LogOut</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+              <li></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="blogger_account.php">My Articles</a></li>
+              <li><a href="blogger_account_create.php">Create</a></li>
+              <li><a href="../backend/login/logout.php">LogOut</a></li>
+                  <!--<li class="search ">
+                    <div class="search-wrapper card">
+                        <input id="search"><i class="material-icons">search</i>
+                        <div class="search-results" style="display:none"></div>
+                    </div>
+                  </li>-->          
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
 
 <?php 
 
@@ -155,9 +187,34 @@ while($row = mysqli_fetch_row($exec))
 		document.getElementById('search').style.display="none";
 		document.getElementById('search_with_details').style.display="block";
 	}
+	function deactivate()
+	{
+		document.getElementById('search').style.display="block";
+		document.getElementById('search_with_details').style.display="none";
+	}
+
 	$(document).ready(function(){
     $(".button-collapse").sideNav();        
 	});
+
+	//....... change menu bar if session is logged in
+	var check = "<?php echo isset($_SESSION['blogger_id']); ?>";
+	console.log(check);
+	if(check)
+	{
+		document.getElementById('not_login').style.display="none";
+		document.getElementById('login').style.display="block";
+		//console.log("hello");
+	}
+	else
+	{
+
+		document.getElementById('login').style.display="none";
+		document.getElementById('not_login').style.display="block";
+		//console.log("bye");
+	}
+
+
 
 </script>
 

@@ -1,7 +1,16 @@
+<?php 
+session_start();
+if(isset($_SESSION['email']))
+{
+  header("Location:blogger_account.php");
+}
+?>
+
 <!DOCTYPE html>
   <html>
     <head>
-      <link rel="stylesheet" type="text/css" href="../materialize/css/materialize.min.css">
+      <title>Enter</title>
+      <link rel="stylesheet" type="text/css" href="../materialize/css/materialize.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
       <link rel="stylesheet" type="text/css" href="../materialize/css/signup.css">
@@ -22,23 +31,23 @@
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="index.php">Home</a></li>
-              <li><a href="signup_form.php">Sign Up</a></li>
-              <li><a href="login_form.php">Sign In</a></li>
+              <li><a href="signup_form.php">Enter</a></li>
+              <li><a href="#">Contact Us</a></li>
               <li><a href="#"><i class="material-icons" id="search" onclick="activate()">search</i></a></li>
               <form class="right" id="search_with_details" style="display:none;">
                 <div class="input-field">
                   <input id="search" type="search" required>
                   <label for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
+                  <i class="material-icons" onclick="deactivate()">close</i>
                 </div>
               </form>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-              <li  style="height:110px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+              <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
               <li></li>
               <li><a href="index.php">Home</a></li>
-              <li><a href="signup_form.php">Sign Up</a></li>
-              <li><a href="login_form.php">Sign In</a></li>
+              <li><a href="signup_form.php">Enter</a></li>
+              <li><a href="#">Contact Us</a></li>
                   <!--<li class="search ">
                     <div class="search-wrapper card">
                         <input id="search"><i class="material-icons">search</i>
@@ -68,7 +77,7 @@
               <div class="input-field col m11 l11  s12 ">
                <i class="material-icons prefix">email</i>
                 <input id="email" type="email" name="email" class="validate" onchange="checkEmail()" placeholder="Enter the email address" required>
-                <label for="email">Email</label>
+                <label for="email" data-error="Enter Proper email address">Email</label>
               </div>              
               <!-- will unable if email is already exists -->
               <div class="err" id="email_info"></div>
@@ -78,7 +87,7 @@
               <div class="input-field col m11 l11  s12 ">
                 <i class="material-icons prefix">phone</i>
                 <input id="contact" type="tel" name="contact" class="validate" onchange="checkContact()" pattern="[789][0-9]{9}" maxlength="11" title="Please enter valid contact number" placeholder="How can anyone contact you ?"   required>
-                <label for="icon_telephone">Telephone</label>
+                <label for="icon_telephone" data-error="Enter Proper Contact No">Telephone</label>
               </div>
               <!-- will unable if contact is already registered -->
               <div class="err" id="contact_info"></div>
@@ -88,7 +97,7 @@
               <div class="input-field col m11 l11  s12 ">
               <i class="material-icons prefix">security</i>
                 <input id="password" type="password" name="password" class="validate" pattern=".{6,}" title="password length should be greater than 6" placeholder="Enter your desired password" required>
-                <label for="password">Password</label>
+                <label for="password" >Password</label>
               </div>
             </div>
 
@@ -105,7 +114,7 @@
               <div class="input-field col m11 l11 s12 ">
                <i class="material-icons prefix">email</i>
                 <input id="emailid" type="email" name="email" class="validate" onchange="checkEmailLogin()" placeholder="Enter email address" required>
-                <label for="email">Email</label>
+                <label for="email" data-error="Enter Proper email address">Email</label>
               </div>
             
               <!-- will unable if email is already exists -->
@@ -130,9 +139,6 @@
         
     
 
-      <!--Import jQuery before materialize.js-->
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
     </body>
     <script src="../materialize/js/materialize.min.js"></script>
     <script>
@@ -140,6 +146,11 @@
       {
         document.getElementById('search').style.display="none";
         document.getElementById('search_with_details').style.display="block";
+      }
+      function deactivate()
+      {
+        document.getElementById('search').style.display="block";
+        document.getElementById('search_with_details').style.display="none";
       }
       
     </script>

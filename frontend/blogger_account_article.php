@@ -117,6 +117,48 @@ $blog_category = $output['blog_category'];
     echo'</div> ';
   echo'</div>';
   ?>
+  <!-- feedback of the article -->
+
+  <div class="row container indigo lighten-5" style="margin-top:50px;">
+    <div class="note col ">
+      <h3>Leave a Comment</h3>
+    <span>Your email address will not be published.</span>
+    </div>
+
+    <form class="col s12 " id="blog" method="post" action="#" enctype="multipart/form-data">
+      <div class="row">
+        <div class="input-field col m12 l12 s12">
+          <input id="name" type="text" name="name" class="validate" aria-required="true">
+          <label for="name" data-error="Enter Proper Name">Name</label>
+        </div>
+        <!-- will unable if username is already exists -->
+        <div class="err" id="name_info"></div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col col m12 l12 s12">
+          <input id="email" type="email" class="validate" required>
+          <label for="email" data-error="Enter Proper email address">Email</label>
+        </div>
+        <!-- will unable if username is already exists -->
+        <div class="err" id="email_info"></div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col col m12 l12 s12">
+          <textarea id="comment" name="comment" class="materialize-textarea"></textarea>
+          <label for="comment" data-error="Please Write Something!">Comments</label>
+        </div>
+      </div>
+
+      <button id="buttonsubmit" class="btn waves-effect waves-light " style="margin-bottom:20px;" type="button" name="button" onclick="submitForm()">Submit
+      <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
+        
+
+  </div>
 </body>
 
 <script src="../materialize/js/materialize.min.js"></script>
@@ -155,6 +197,11 @@ $blog_category = $output['blog_category'];
     }
 
     //................................
+    // to check feedback to the article
+    function submitForm() {
+
+
+    }
 
 
 </script>

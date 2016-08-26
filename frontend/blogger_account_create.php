@@ -4,7 +4,7 @@ include("../backend/db.php");
 session_start();
 if(!isset($_SESSION['email']))
 {
-	header("Location:login_form.php");
+	header("Location:signup_form.php");
 }
 //--------------------------------------------
 
@@ -115,11 +115,6 @@ if(!isset($_SESSION['email']))
     </body>
     <script src="../materialize/js/materialize.min.js"></script>
     <script>
-      function activate()
-      {
-        document.getElementById('search').style.display="none";
-        document.getElementById('search_with_details').style.display="block";
-      }
       $(document).ready(function(){
         $(".button-collapse").sideNav();        
       });
