@@ -156,7 +156,7 @@ $blog_category = $output['blog_category'];
     <span>Your email address will not be published.</span>
     </div>
 
-    <form class="col s12 " id="blog" method="post" action="#" enctype="multipart/form-data">
+    <form class="col s12 " id="blog" method="post" action="../backend/feedback.php" enctype="multipart/form-data">
       <div class="row">
         <div class="input-field col m12 l12 s12">
           <input id="name" type="text" name="name" class="validate" aria-required="true">
@@ -168,7 +168,7 @@ $blog_category = $output['blog_category'];
 
       <div class="row">
         <div class="input-field col col m12 l12 s12">
-          <input id="email" type="email" class="validate" required>
+          <input id="email" type="email" class="validate" name="email" required >
           <label for="email" data-error="Enter Proper email address">Email</label>
         </div>
         <!-- will unable if username is already exists -->
@@ -182,7 +182,7 @@ $blog_category = $output['blog_category'];
         </div>
       </div>
 
-      <button id="buttonsubmit" class="btn waves-effect waves-light " style="margin-bottom:20px;" type="button" name="button" onclick="submitForm()">Submit
+      <button id="buttonsubmit" class="btn waves-effect waves-light " style="margin-bottom:20px;" type="submit" name="submit">Submit
       <i class="material-icons right">send</i>
       </button>
     </form>
