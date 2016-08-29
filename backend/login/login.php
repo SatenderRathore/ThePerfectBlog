@@ -13,6 +13,7 @@ if($_POST)
 	{
 		echo"HELLO";
 		$_SESSION['email'] = $email;
+		$_SESSION['blogger_id'] = "admin";
 		header("Location:../../frontend/admin.php");
 	}
 	else
