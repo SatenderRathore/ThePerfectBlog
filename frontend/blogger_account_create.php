@@ -60,8 +60,8 @@ if(!isset($_SESSION['email']))
       	    <div class="row">
               <div class="input-field col m10 offset-m1 l10 offset-l1 s12">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="blog_title" type="text" class="validate" name="blog_title" placeholder="Enter Blog Title">
-                <label for="icon_prefix">Blog title</label>
+                <input id="blog_title" type="text" class="validate" name="blog_title" placeholder="Enter Blog Title" >
+                <label for="blog_title" data-error="Enter Proper Title">Blog title</label>
               </div>
               <!--<div class="input-field col s6">
                 <i class="material-icons prefix">phone</i>
@@ -74,9 +74,9 @@ if(!isset($_SESSION['email']))
            <div class="row">
               <div class="input-field col m10 offset-m1 l10 offset-l1 s12">
                 <i class="material-icons prefix">account_circle</i>
-                <input id="blog_cat" type="text" name="blog_cat" placeholder="Enter Blog Category">
+                <input id="blog_cat" type="text" name="blog_cat" placeholder="Enter Blog Category" required>
 
-                <label for="icon_prefix">Blog Category</label>
+                <label for="blog_cat">Blog Category</label>
               </div>
             </div>
           </div>
@@ -85,8 +85,8 @@ if(!isset($_SESSION['email']))
        			<div class="row">
         			<div class="input-field col m10 offset-m1 l10 offset-l1 s12 ">
           				<i class="material-icons prefix">mode_edit</i>
-          				<textarea id="textarea" class="materialize-textarea" name="blog_desc" placeholder="Enter Blog Description"></textarea>
-          				<label for="icon_prefix2">Blog description</label>
+          				<textarea id="textarea" class="materialize-textarea" name="blog_desc" placeholder="Enter Blog Description"required></textarea>
+          				<label for="textarea">Blog description</label>
         			</div>
       			</div>
           </div>
@@ -98,7 +98,7 @@ if(!isset($_SESSION['email']))
                   <input type="file" name="image">
                 </div>
                 <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" placeholder="please give image of size 900px X 300px">
+                  <input class="file-path validate" type="text" placeholder="please give image of size 900px X 300px" required>
                 </div>
             </div>
           </div>

@@ -87,7 +87,7 @@ if(isset($_SESSION['email']))
               <div class="input-field col m11 l11  s12 ">
                 <i class="material-icons prefix">phone</i>
                 <input id="contact" type="tel" name="contact" class="validate" onchange="checkContact()" pattern="[789][0-9]{9}" maxlength="11" title="Please enter valid contact number" placeholder="How can anyone contact you ?"   required>
-                <label for="icon_telephone" data-error="Enter Proper Contact No">Telephone</label>
+                <label for="contact" data-error="Enter Proper Contact No">Telephone</label>
               </div>
               <!-- will unable if contact is already registered -->
               <div class="err" id="contact_info"></div>

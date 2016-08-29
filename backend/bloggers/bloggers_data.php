@@ -44,14 +44,17 @@ if(isset($_POST['submit']))
 	else
 	{
 		?>
-		<script>alert("please insert image only");</script>
+		<script>
+		alert("please insert image only");
+		return false;
+		</script>
 		<?php
 	}
 
 //----------------------this is for image-------------------------- 
 
     ?>
-    <script>alert("your blog is submitted successfully");</script>
+    <script>alert("your blog is submitted successfully"); window.location.href = "../../frontend/blogger_account.php";</script>'
     <?php
 }
 ?>
