@@ -85,6 +85,7 @@ while($row = mysqli_fetch_row($exec))
             echo $row[3]; 
           echo'</p>';
             echo'</div>';
+            
           echo'<a href="blogger_account_article.php?blog_id='.$blog_id.'" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
 
           echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
