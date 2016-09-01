@@ -41,7 +41,7 @@ $exec  = mysqli_query($conn, $query);
       <div class="navbar-fixed">
         <nav>
           <div class="nav-wrapper blue-grey">
-            <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+            <a href="index.php" class="brand-logo" style="padding-left:20px;">FNW</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="index.php">Home</a></li>
@@ -68,43 +68,98 @@ $exec  = mysqli_query($conn, $query);
       </div>
 <!--  -->
 <?php
-
+$i=0;
 while($row = mysqli_fetch_row($exec))
 {
 
-      $blog_id = $row[0];
+      $blog_id[$i] = $row[0];
+      $blog_title[$i] = $row[2];
+      $blog_desc[$i] = $row[3];
+      $blog_author[$i] = $row[5];
+      $creation_date[$i] = $row[8];
       $_SESSION['blog_id'] = $blog_id;
       echo'<div class="container">';
-        echo'<div class="card hoverable large article" id="'.$blog_id.'" style="margin-top:40px; margin-bottom:40px;">';
+        echo'<div class="card hoverable large article" id="'.$blog_id[$i].'" style="margin-top:40px; margin-bottom:40px;">';
           echo'<div class="card-image">';
-            echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'">';
-            echo'<span class="card-title">'.$row[2].'</span>';
+            echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id[$i].'">';
+            echo'<span class="card-title">'.$blog_title[$i].'</span>';
           echo'</div>';
           echo'<div class="card-content " style="max-height: 85px;">';
             echo'<p>';
-            echo $row[3]; 
+            echo $blog_desc[$i]; 
           echo'</p>';
             echo'</div>';
             
-          echo'<a href="blogger_account_article.php?blog_id='.$blog_id.'" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
-
           echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
             echo'<div class="left">';
               echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
               echo'<div class="right" style="margin-left:10px">';
-                echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[5].'</a></div>';
-                echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[8].'</a></div>';
+                echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$blog_author[$i].'</a></div>';
+                echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$creation_date[$i].'</a></div>';
 
               echo'</div>';
             echo'</div>';
+            
             echo'<div class="right">';
-              echo'<a href="edit_blog.php?blog_id='.$blog_id.'" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
-              echo'<a class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
-
+              echo'<div class="fixed-action-btn horizontal" style="position: inherit">';
+                  echo'<a class="btn-floating btn-medium red">';
+                      echo'<i class="large material-icons">menu</i>';
+                  echo'</a>';
+                  echo'<ul>';
+                    echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating green modal-trigger" href="#modal'.$i.'"><i class="material-icons">aspect_ratio</i></a></li>';
+                    if(isset($_SESSION['blogger_id']))
+                      echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating blue" href="blogger_account_article.php?blog_id='.$blog_id[$i].'"><i class="material-icons">comment</i></a></li>';
+                    else
+                      echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating blue" href="view_full_article.php?blog_id='.$blog_id[$i].'"><i class="material-icons">comment</i></a></li>';
+                    echo'<li style="margin: 5px 15px 0 0;"><a href="edit_blog.php?blog_id='.$blog_id[$i].'" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a></li>';
+                    echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating btn-medium waves-effect waves-light red" onclick="deleteBlog('.$blog_id[$i].')" href="javascript:void(0);"><i class="material-icons">delete</i></a></li>';
+                  echo'</ul>';
+              echo'</div>';
             echo'</div>';
           echo'</div>';
         echo'</div>';
       echo'</div>';
+
+      echo'<div id="modal'.$i.'" class="modal modal-fixed-footer" style="width:70%; margin-top:50px;">';
+        echo'<div class="card large" style="margin-top:-5px; margin-bottom:-5px;">';
+          echo'<div class="card-image">';
+            echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id[$i].'" >';
+            echo'<span class="card-title">'.$$blog_title[$i].'</span>';
+          echo'</div>';
+          echo'<div class="card-content" style="max-height: 85px;">';
+              echo'<p>';
+              echo $blog_desc[$i]; 
+            echo'</p>';
+            echo'</div>';
+            
+          echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
+            echo'<div class="left">';
+              echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
+              echo'<div class="right" style="margin-left:10px">';
+                echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$blog_author[$i].'</a></div>';
+                echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$creation_date[$i].'</a></div>';
+
+              echo'</div>';
+            echo'</div>';
+            echo'<div class="right">';
+              echo'<div class="fixed-action-btn horizontal" style="position: inherit">';
+                  echo'<a class="btn-floating btn-medium red">';
+                      echo'<i class="large material-icons">menu</i>';
+                  echo'</a>';
+                  echo'<ul>';
+                    if(isset($_SESSION['blogger_id']))
+                      echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating blue" href="blogger_account_article.php?blog_id='.$blog_id[$i].'"><i class="material-icons">comment</i></a></li>';
+                    else
+                      echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating blue" href="view_full_article.php?blog_id='.$blog_id[$i].'"><i class="material-icons">comment</i></a></li>';
+                  echo'</ul>';
+              echo'</div>';
+            echo'</div>';
+
+          echo'</div>';
+        echo'</div>';
+      echo'</div>';
+
+      $i++;
 }
 ?>
 <!--  -->
@@ -115,6 +170,7 @@ while($row = mysqli_fetch_row($exec))
     <script>
       $(document).ready(function(){
         $(".button-collapse").sideNav();        
+        $('.modal-trigger').leanModal();
       });
 
       function deleteBlog(blogId)

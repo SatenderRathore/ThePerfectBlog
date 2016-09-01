@@ -33,6 +33,12 @@ $exec = mysqli_query($conn, $query);
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../materialize/css/main.css">
+  <script>
+  	$(document).ready(function(){
+    	$(".button-collapse").sideNav();        
+    	$('.modal-trigger').leanModal();
+	});
+  </script>
 </head>
 
 <body>
@@ -40,7 +46,7 @@ $exec = mysqli_query($conn, $query);
 	  <div class="navbar-fixed">
         <nav>
           <div class="nav-wrapper blue-grey">
-            <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+            <a href="index.php" class="brand-logo" style="padding-left:20px;">FNW</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="index.php">Home</a></li>
@@ -75,7 +81,7 @@ $exec = mysqli_query($conn, $query);
       <div class="navbar-fixed" >
         <nav>
           <div class="nav-wrapper blue-grey">
-            <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+            <a href="index.php" class="brand-logo" style="padding-left:20px;">FNW</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="index.php">Home</a></li>
@@ -105,7 +111,7 @@ $exec = mysqli_query($conn, $query);
       <div class="navbar-fixed">
 	    <nav>
 	      <div class="nav-wrapper blue-grey">
-	        <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+	        <a href="index.php" class="brand-logo" style="padding-left:20px;">FNW</a>
 	        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 	        <ul class="right hide-on-med-and-down">
 	          <li><a href="index.php">Home</a></li>
@@ -145,6 +151,7 @@ while($row = mysqli_fetch_row($exec))
 		$blog_desc[$i] = $row[3];
 		$blog_author[$i] = $row[5];
 		$creation_date[$i] = $row[8];
+
  		echo'<div class="container">';
 			echo'<div class="card hoverable large article">';
 				echo'<div class="card-image">';
@@ -197,7 +204,6 @@ while($row = mysqli_fetch_row($exec))
 						echo $blog_desc[$i]; 
 				 	echo'</p>';
 		  		echo'</div>';
-		  		//echo $_SESSION['blogger_id'];
 		  		
 				echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
 					echo'<div class="left">';
@@ -246,10 +252,7 @@ while($row = mysqli_fetch_row($exec))
 		document.getElementById('search_with_details').style.display="none";
 	}
 
-	$(document).ready(function(){
-    	$(".button-collapse").sideNav();        
-    	$('.modal-trigger').leanModal();
-	});
+	
 
 	//....... change menu bar if session is logged in
 	var check = "<?php echo ($_SESSION['blogger_id']); ?>";

@@ -53,7 +53,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
     <div class="navbar-fixed" >
       <nav>
         <div class="nav-wrapper blue-grey">
-          <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+          <a href="index.php" class="brand-logo" style="padding-left:20px;">FNW</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="index.php">Home</a></li>
@@ -132,7 +132,7 @@ $blog_category = $output['blog_category'];
       echo'<div class="chip" id="category" style="margin-left:20px;margin-bottom:70px;">'.$blog_category.'</div>';
     
       echo'<div class="card-action">';
-        echo'<div class="left">';
+        echo'<div class="left" style="margin-top:-15px;">';
           echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
           echo'<div class="right" style="margin-left:10px">';
             echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">Sagar Keshri</a></div>';
@@ -140,10 +140,17 @@ $blog_category = $output['blog_category'];
 
           echo'</div>';
         echo'</div>';
-        echo'<div class="right" id="change_article">';
-          echo'<a href="edit_blog.php?blog_id='.$blog_id.'" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
-          echo'<a class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
-
+        
+        echo'<div class="right" id="change_article" style="margin-top:-15px;">';
+          echo'<div class="fixed-action-btn horizontal" style="position: inherit">';
+              echo'<a class="btn-floating btn-medium red">';
+                  echo'<i class="large material-icons">menu</i>';
+              echo'</a>';
+              echo'<ul>';
+                echo'<li style="margin: 5px 15px 0 0;"><a href="edit_blog.php?blog_id='.$blog_id.'" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a></li>';
+                echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating btn-medium waves-effect waves-light red" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a></li>';
+              echo'</ul>';
+          echo'</div>';
         echo'</div>';
       echo'</div>';
     echo'</div> ';

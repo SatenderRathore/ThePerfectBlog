@@ -47,7 +47,7 @@ $blog_description = $output['blog_desc'];
       <div class="navbar-fixed">
         <nav>
           <div class="nav-wrapper blue-grey">
-            <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+            <a href="index.php" class="brand-logo" style="padding-left:20px;">FNW</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="index.php">Home</a></li>

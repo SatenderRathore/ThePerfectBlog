@@ -4570,7 +4570,6 @@ small {
 }
 .card.xlarge .card-action{
   max-height: 50px;
-  bottom: 15px;
 }
 
 .card.small {
@@ -5292,7 +5291,7 @@ button.btn-floating {
   background-color: #fafafa;
   padding: 0;
   max-height: 70%;
-  width: 70%;
+  width: 55%;
   margin: auto;
   overflow-y: auto;
   border-radius: 2px;
