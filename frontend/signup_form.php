@@ -26,7 +26,7 @@ if(isset($_SESSION['email']))
     <body>
       <div class="navbar-fixed">
         <nav>
-          <div class="nav-wrapper indigo">
+          <div class="nav-wrapper blue-grey">
             <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
@@ -43,7 +43,7 @@ if(isset($_SESSION['email']))
               </form>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-              <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+              <li  style="height:80px; margin-bottom:50px; padding-top:20px;" class="center"><a href="index.php"><img src="../images/icon.png" class="circle" alt="TPB icon"></a></li>
               <li></li>
               <li><a href="index.php">Home</a></li>
               <li><a href="signup_form.php">Enter</a></li>

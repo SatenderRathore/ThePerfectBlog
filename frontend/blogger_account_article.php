@@ -39,8 +39,9 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 
   <script>
     $(document).ready(function(){
-    $(".button-collapse").sideNav();        
-  });
+      $(".button-collapse").sideNav();    
+      $('input#input_text, textarea#textarea1').characterCounter();      
+    });
 
 
 
@@ -51,7 +52,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
   <div id="blogger_login">
     <div class="navbar-fixed" >
       <nav>
-        <div class="nav-wrapper indigo">
+        <div class="nav-wrapper blue-grey">
           <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
@@ -61,7 +62,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
             <li><a href="../backend/login/logout.php">LogOut</a></li>
           </ul>
           <ul class="side-nav" id="mobile-demo">
-            <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+            <li  style="height:80px; margin-bottom:50px; padding-top:20px;" class="center"><a href="index.php"><img src="../images/icon.png" class="circle" alt="TPB icon"></a></li>
             <li></li>
             <li><a href="index.php">Home</a></li>
             <li><a href="blogger_account.php">My Articles</a></li>
@@ -81,7 +82,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
   <div id="admin_login" style="display:none">
     <div class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper indigo">
+        <div class="nav-wrapper blue-grey">
           <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
@@ -91,7 +92,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
             <li><a href="../backend/login/logout.php">LogOut</a></li>
           </ul>
           <ul class="side-nav" id="mobile-demo">
-            <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+            <li  style="height:80px; margin-bottom:50px; padding-top:20px;" class="center"><a href="index.php"><img src="../images/icon.png" class="circle" alt="TPB icon"></a></li>
             <li></li>
             <li><a href="index.php">Home</a></li>
             <li><a href="new_blogs.php">New Blogs</a></li>
@@ -150,7 +151,7 @@ $blog_category = $output['blog_category'];
   ?>
   <!-- feedback of the article -->
 
-  <div class="row container indigo lighten-5" style="margin-top:50px;">
+  <div class="row container hoverable indigo lighten-5" style="margin-top:50px;">
     <div class="note col ">
       <h3>Leave a Comment</h3>
     <span>Your email address will not be published.</span>
@@ -177,7 +178,7 @@ $blog_category = $output['blog_category'];
 
       <div class="row">
         <div class="input-field col col m12 l12 s12">
-          <textarea id="comment" name="comment" class="materialize-textarea"></textarea>
+          <textarea id="comment" name="comment" class="materialize-textarea" length="10" maxlength="120"></textarea>
           <label for="comment" data-error="Please Write Something!">Comments</label>
         </div>
       </div>

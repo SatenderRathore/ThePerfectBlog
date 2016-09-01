@@ -29,7 +29,7 @@ $exec = mysqli_query($conn, $query);
 <html>
 <head>
 <title>Main Page</title>
-  <link rel="stylesheet" type="text/css" href="../materialize/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="../materialize/css/materialize.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../materialize/css/main.css">
@@ -39,7 +39,7 @@ $exec = mysqli_query($conn, $query);
 	<div id="not_login">
 	  <div class="navbar-fixed">
         <nav>
-          <div class="nav-wrapper indigo">
+          <div class="nav-wrapper blue-grey">
             <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
@@ -56,8 +56,7 @@ $exec = mysqli_query($conn, $query);
               </form>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-              <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
-              <li></li>
+              <li  style="height:80px; margin-bottom:50px; padding-top:20px;" class="center"><a href="index.php"><img src="../images/icon.png" class="circle" alt="TPB icon"></a></li>
               <li><a href="index.php">Home</a></li>
               <li><a href="signup_form.php">Enter</a></li>
               <li><a href="contactus.php">Contact Us</a></li>
@@ -75,7 +74,7 @@ $exec = mysqli_query($conn, $query);
     <div id="blogger_login" style="display:none;">
       <div class="navbar-fixed" >
         <nav>
-          <div class="nav-wrapper indigo">
+          <div class="nav-wrapper blue-grey">
             <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
@@ -85,7 +84,7 @@ $exec = mysqli_query($conn, $query);
               <li><a href="../backend/login/logout.php">LogOut</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-              <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+              <li  style="height:80px; margin-bottom:50px; padding-top:20px;" class="center"><a href="index.php"><img src="../images/icon.png" class="circle" alt="TPB icon"></a></li>
               <li></li>
               <li><a href="index.php">Home</a></li>
               <li><a href="blogger_account.php">My Articles</a></li>
@@ -105,7 +104,7 @@ $exec = mysqli_query($conn, $query);
     <div id="admin_login" style="display:none">
       <div class="navbar-fixed">
 	    <nav>
-	      <div class="nav-wrapper indigo">
+	      <div class="nav-wrapper blue-grey">
 	        <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
 	        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 	        <ul class="right hide-on-med-and-down">
@@ -115,7 +114,7 @@ $exec = mysqli_query($conn, $query);
 	          <li><a href="../backend/login/logout.php">LogOut</a></li>
 	        </ul>
 	        <ul class="side-nav" id="mobile-demo">
-	          <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+	          <li  style="height:80px; margin-bottom:50px; padding-top:20px;" class="center"><a href="index.php"><img src="../images/icon.png" class="circle" alt="TPB icon"></a></li>
 	          <li></li>
 	          <li><a href="index.php">Home</a></li>
 	          <li><a href="new_blogs.php">New Blogs</a></li>
@@ -135,79 +134,103 @@ $exec = mysqli_query($conn, $query);
 
 <?php 
 
-	
+$i=0;
 while($row = mysqli_fetch_row($exec))
 {
-	// print_r($row[0] . ", ");
-	// print_r($row[1] . ", ");
-	// print_r($row[2] . ", ");
-	// print_r($row[3] . ", ");
-	// print_r($row[4] . ", ");
-	// print_r($row[5] . ", ");
-	// print_r($row[6] . ", ");
-	// print_r($row[7] . ", ");
-	// print_r($row[8] . ", ");
-	// 
 
 	if($row[6]=='1')	
 	{
-		$blog_id =$row[0];
-		echo'<div class="container">';
+		$blog_id[$i] = $row[0];
+		$blog_title[$i] = $row[2];
+		$blog_desc[$i] = $row[3];
+		$blog_author[$i] = $row[5];
+		$creation_date[$i] = $row[8];
+ 		echo'<div class="container">';
 			echo'<div class="card hoverable large article">';
 				echo'<div class="card-image">';
-					echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'" >';
-					echo'<span class="card-title">'.$row[2].'</span>';
+					echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id[$i].'" >';
+					echo'<span class="card-title">'.$blog_title[$i].'</span>';
 				echo'</div>';
 				echo'<div class="card-content" style="max-height: 85px;">';
-			    echo'<p>';
-				echo $row[3]; 
-			 	echo'</p>';
+				    echo'<p>';
+						echo $blog_desc[$i]; 
+				 	echo'</p>';
 		  		echo'</div>';
 		  		//echo $_SESSION['blogger_id'];
-		  		if(isset($_SESSION['blogger_id']))
-		  		{
-			 		echo'<a href="blogger_account_article.php?blog_id='.$blog_id.'" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
-			 	}
-			 	else
-			 	{
-			 			echo'<a href="view_full_article.php?blog_id='.$blog_id.'" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
-			 	}
+		  		
 				echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
 					echo'<div class="left">';
-					echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
-					echo'<div class="right" style="margin-left:10px">';
-						echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[5].'</a></div>';
-						echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$row[8].'</a></div>';
+						echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
+						echo'<div class="right" style="margin-left:10px">';
+							echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$blog_author[$i].'</a></div>';
+							echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$creation_date[$i].'</a></div>';
 
+						echo'</div>';
 					echo'</div>';
+					echo'<div class="right">';
+						echo'<div class="fixed-action-btn horizontal" style="position: inherit">';
+						    echo'<a class="btn-floating btn-medium red">';
+						      	echo'<i class="large material-icons">menu</i>';
+						    echo'</a>';
+						    echo'<ul>';
+						    	echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating green modal-trigger" href="#modal'.$i.'"><i class="material-icons">aspect_ratio</i></a></li>';
+						    	if(isset($_SESSION['blogger_id']))
+							    	echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating blue" href="blogger_account_article.php?blog_id='.$blog_id[$i].'"><i class="material-icons">comment</i></a></li>';
+						    	else
+						    		echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating blue" href="view_full_article.php?blog_id='.$blog_id[$i].'"><i class="material-icons">comment</i></a></li>';
+						    echo'</ul>';
+						echo'</div>';
 					echo'</div>';
+
 				echo'</div>';
 			echo'</div>';
 		echo'</div>';
+
+		echo'<div id="modal'.$i.'" class="modal modal-fixed-footer" style="width:70%; margin-top:50px;">';
+			echo'<div class="card large" style="margin-top:-5px; margin-bottom:-5px;">';
+				echo'<div class="card-image">';
+					echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id[$i].'" >';
+					echo'<span class="card-title">'.$$blog_title[$i].'</span>';
+				echo'</div>';
+				echo'<div class="card-content" style="max-height: 85px;">';
+				    echo'<p>';
+						echo $blog_desc[$i]; 
+				 	echo'</p>';
+		  		echo'</div>';
+		  		//echo $_SESSION['blogger_id'];
+		  		
+				echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
+					echo'<div class="left">';
+						echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
+						echo'<div class="right" style="margin-left:10px">';
+							echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$blog_author[$i].'</a></div>';
+							echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$creation_date[$i].'</a></div>';
+
+						echo'</div>';
+					echo'</div>';
+					echo'<div class="right">';
+						echo'<div class="fixed-action-btn horizontal" style="position: inherit">';
+						    echo'<a class="btn-floating btn-medium red">';
+						      	echo'<i class="large material-icons">menu</i>';
+						    echo'</a>';
+						    echo'<ul>';
+						    	if(isset($_SESSION['blogger_id']))
+							    	echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating blue" href="blogger_account_article.php?blog_id='.$blog_id[$i].'"><i class="material-icons">comment</i></a></li>';
+						    	else
+						    		echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating blue" href="view_full_article.php?blog_id='.$blog_id[$i].'"><i class="material-icons">comment</i></a></li>';
+						    echo'</ul>';
+						echo'</div>';
+					echo'</div>';
+
+				echo'</div>';
+			echo'</div>';
+		echo'</div>';
+
+		$i++;
 	}
-
-	
-	
-	// echo'<div class="container">';
-	// 	echo'<div class="card hoverable large article">';
-	// 		echo'<div class="card-image">';
-	// 			echo'<img src="../images/sample-1.jpg">';
-	// 			echo'<span class="card-title">' . $row[2] . '</span>';
-	// 		echo'</div>';
-	// 		echo'<div class="card-content">';
-	// 	    echo'<p>';
-	// 	    echo $row[3];
-				
-	// 	 	echo'</p>';
-	//   		echo'</div>';
-	// 		echo'<div class="card-action" style="padding:10px 20px;">';
-	// 			echo'<a href="#">Read More</a>';
-	// 		echo'</div>';
-	// 	echo'</div>';
-
-	// echo'</div>';
 }
-?>	
+?>
+
 </body>
 
 <script src="../materialize/js/materialize.min.js"></script>
@@ -224,16 +247,17 @@ while($row = mysqli_fetch_row($exec))
 	}
 
 	$(document).ready(function(){
-    $(".button-collapse").sideNav();        
+    	$(".button-collapse").sideNav();        
+    	$('.modal-trigger').leanModal();
 	});
 
 	//....... change menu bar if session is logged in
-	var check = "<?php echo isset($_SESSION['blogger_id']); ?>";
+	var check = "<?php echo ($_SESSION['blogger_id']); ?>";
 	console.log(check);
 	if(check)
 	{
 		document.getElementById('not_login').style.display="none";
-		if(check == 1)
+		if(check == "admin")
 		{
 			document.getElementById('blogger_login').style.display="none";
 			document.getElementById('admin_login').style.display="block";

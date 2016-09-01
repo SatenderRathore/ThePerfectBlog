@@ -29,7 +29,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 <body>
 	<div class="navbar-fixed">
 		<nav>
-		    <div class="nav-wrapper indigo">
+		    <div class="nav-wrapper blue-grey">
 				<a href="main.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul class="right hide-on-med-and-down">
