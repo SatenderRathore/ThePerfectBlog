@@ -26,7 +26,8 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 <title>Full Blog</title>
   <link rel="stylesheet" type="text/css" href="../materialize/css/materialize.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
-  <link rel="stylesheet" type="text/css" href="../materialize/css/blogger_account_article.css">
+  <link rel="stylesheet" type="text/css" href="../materialize/css/blogger_account_article.css">  
+  <link rel="stylesheet" type="text/css" href="../materialize/css/view_full_article.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
   <script>
@@ -128,8 +129,48 @@ $blog_category = $output['blog_category'];
 	echo'</div>';
   ?>
   <!-- feedback of the article -->
+  <div class="row container" style="margin-top:20px;">
+    <div class=" card col s12" id="">
+      <div class="comment ">
+        <div class="name"><strong>Sagar Keshri :</strong></div>
+        <br\>
+        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
+      </div>
+    </div>
+  </div>
 
-  <div class="row container indigo lighten-5" style="margin-top:50px;">
+  <div class="row container " style="margin-top:20px;">
+    <div class=" card col s12" id="">
+      <div class="comment ">
+        <div class="name"><strong>Sagar Keshri :</strong></div>
+        <br\>
+        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row container" style="margin-top:20px;">
+    <div class="card col s12" id="">
+      <div class="comment ">
+        <div class="name"><strong>Sagar Keshri :</strong></div>
+        <br\>
+        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row container" style="margin-top:20px;">
+    <div class="card col s12" id="">
+      <div class="comment ">
+        <div class="name"><strong>Sagar Keshri :</strong></div>
+        <br\>
+        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row container indigo lighten-5" style="margin-top:20px;">
     <div class="note col ">
       <h3>Leave a Comment</h3>
     <span>Your email address will not be published.</span>
