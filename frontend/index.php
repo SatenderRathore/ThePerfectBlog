@@ -45,7 +45,7 @@ $exec = mysqli_query($conn, $query);
             <ul class="right hide-on-med-and-down">
               <li><a href="index.php">Home</a></li>
               <li><a href="signup_form.php">Enter</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="contactus.php">Contact Us</a></li>
               <li><a href="#"><i class="material-icons" id="search" onclick="activate()">search</i></a></li>
               <form class="right" id="search_with_details" style="display:none;">
                 <div class="input-field">
@@ -60,7 +60,7 @@ $exec = mysqli_query($conn, $query);
               <li></li>
               <li><a href="index.php">Home</a></li>
               <li><a href="signup_form.php">Enter</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="contactus.php">Contact Us</a></li>
                   <!--<li class="search ">
                     <div class="search-wrapper card">
                         <input id="search"><i class="material-icons">search</i>
@@ -155,7 +155,7 @@ while($row = mysqli_fetch_row($exec))
 		echo'<div class="container">';
 			echo'<div class="card hoverable large article">';
 				echo'<div class="card-image">';
-					echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'">';
+					echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'" >';
 					echo'<span class="card-title">'.$row[2].'</span>';
 				echo'</div>';
 				echo'<div class="card-content" style="max-height: 85px;">';
