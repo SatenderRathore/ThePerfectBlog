@@ -76,6 +76,10 @@ echo'<div class="container">';
           echo'</thead>';
           echo'<tbody>';
 
+
+$query = "SELECT * FROM blogger_details WHERE active_account = '0'";
+$exec = mysqli_query($conn,$query);
+
 while($row = mysqli_fetch_row(($exec)))
 {
   $blogger_id = $row[0];
