@@ -53,8 +53,15 @@ if(!isset($_SESSION['email']))
 
 $query = "SELECT * FROM blogger_details WHERE active_account = '0'";
 $exec = mysqli_query($conn,$query);
-
-      echo'<div class="container">';
+$flag = 0;
+while($row = mysqli_fetch_row(($exec)))
+{
+$flag=1;
+break;
+}
+if($flag)
+{
+echo'<div class="container">';
         echo'<table class="responsive-table highlight" style="margin-top:30px;">';
           echo'<thead>';
             echo'<tr>';
@@ -94,6 +101,13 @@ while($row = mysqli_fetch_row(($exec)))
         echo'</table>';
 
       echo'</div>';
+}
+else
+{
+  echo '<div class="container row blue-grey lighten-4" style="margin-top: 50px; color:white; background-color: #fff;transition: box-shadow .25s;border-radius: 2px;">'; echo '<div class="col ">'; echo '<h3>No New Accounts</h3>'; echo'</div>'; echo '</div>';
+}
+
+      
       
       ?>
       
