@@ -13,7 +13,11 @@ if(isset($_POST['submit']))
 	$query = "INSERT INTO feedback(blog_id,name, email, comment) VALUES('$blog_id','$name','$email','$comment')";
 	$exec = mysqli_query($conn, $query);
 
-echo "successfully submited feedback";
+// echo "successfully submited feedback";
+?>
+    <script>alert("successfully submited feedback"); window.location.href = "../frontend/index.php";</script>'
+    <?php
+
 
 
 

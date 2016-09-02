@@ -25,7 +25,7 @@ if(isset($_POST['submit']))
     mysqli_query($conn, $insert_query);
 
 //----------------------this is for image--------------------------
-
+// print_r(substr($imageType, 0, 5));
     if(substr($imageType, 0, 5) == "image")
 	{
 		// --------------------code to get blog_id---------------------------------------------------------------------------
@@ -39,22 +39,25 @@ if(isset($_POST['submit']))
 		$query = "INSERT INTO blog_detail VALUES ('$blog_id','$imageData')";
 		$exec = mysqli_query($conn, $query);
 
+		?>
+    <script>alert("your blog is submitted successfully"); window.location.href = "../../frontend/blogger_account.php";</script>'
+    <?php
+
 	}
 	
 	else
 	{
 		?>
 		<script>
-		alert("please insert image only");
-		return false;
+		alert("please insert image only"); window.location.href = "../../frontend/blogger_account_create.php";
+		// alert("please insert image only");
+		// return false;
 		</script>
 		<?php
 	}
 
 //----------------------this is for image-------------------------- 
 
-    ?>
-    <script>alert("your blog is submitted successfully"); window.location.href = "../../frontend/blogger_account.php";</script>'
-    <?php
+    
 }
 ?>
