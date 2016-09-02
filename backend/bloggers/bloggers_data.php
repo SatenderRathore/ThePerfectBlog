@@ -47,7 +47,10 @@ if(isset($_POST['submit']))
 	
 	else
 	{
+		$_SESSION['refresh'] = 1;
 		?>
+
+
 		<script>
 		alert("please insert image only"); window.location.href = "../../frontend/blogger_account_create.php";
 		// alert("please insert image only");
@@ -56,7 +59,7 @@ if(isset($_POST['submit']))
 		<?php
 	}
 
-//----------------------this is for image-------------------------- 
+//------------------------------------------------------------------------------------------------------------------------------- 
 
     
 }

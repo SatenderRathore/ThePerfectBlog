@@ -8,6 +8,13 @@ if(!isset($_SESSION['email']))
 }
 //--------------------------------------------
 
+//if blogger submit any other file instead of image
+
+if(isset($_SESSION['refresh']))
+{
+  echo "hello";
+}
+
 ?>
 
 
