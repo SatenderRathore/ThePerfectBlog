@@ -1,8 +1,9 @@
 <?php
 include("db.php");
 
-
+session_start();
 $blog_id = $_GET['blog_id'];
+//print_r($blog_id);
 
 $query = "SELECT * FROM blog_master WHERE blog_id='$blog_id'";
 $exec = mysqli_query($conn, $query);
@@ -115,7 +116,7 @@ $blog_category = $output['blog_category'];
       echo'<div class="chip" id="category" style="margin-left:20px;margin-bottom:70px;">'.$blog_category.'</div>';
 		
       echo'<div class="card-action">';
-        echo'<div class="left">';
+        echo'<div class="left"style="margin-top:-15px;">';
           echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
           echo'<div class="right" style="margin-left:10px">';
             echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">Sagar Keshri</a></div>';
@@ -137,6 +138,9 @@ $blog_category = $output['blog_category'];
     </div>
 
     <form class="col s12 " id="blog" method="post" action="../backend/feedback.php" enctype="multipart/form-data">
+      <?php
+      $_SESSION['blog_id']=$blog_id;
+      ?>
       <div class="row">
         <div class="input-field col m12 l12 s12">
           <input id="name" type="text" name="name" class="validate" required>
@@ -170,7 +174,25 @@ $blog_category = $output['blog_category'];
 
   <!-- showing the comments -->
 
-  <div class="row container">
+  <?php
+  $query = "SELECT * FROM feedback WHERE blog_id = '$blog_id'";
+  $exec = mysqli_query($conn,$query);
+  // $result = mysqli_fetch_array($exec, MYSQLI_ASSOC);
+  while($row = mysqli_fetch_row($exec))
+  {
+    $name = $row[2];
+    $comment = $row[4];
+      echo'<div class="row container" style="margin-top:20px;">';
+        echo'<div class=" card col s12" id="">';
+          echo'<div class="comment ">';
+            echo'<div class="name"><strong>'.$name.' :</strong></div>';
+            echo'<br\>';
+            echo'<div class="desc" style="font-size: 0.85em;">'.$comment.'</div>';
+          echo'</div>';
+        echo'</div>';
+      echo'</div>';
+  }
+  ?>
 
 
 

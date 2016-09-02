@@ -51,51 +51,66 @@ if(!isset($_SESSION['email']))
 
 <?php
 
-$query = "SELECT * FROM blogger_details WHERE active_account = '0'";
-$exec = mysqli_query($conn,$query);
+  $query = "SELECT * FROM blogger_details WHERE active_account = '0'";
+  $exec = mysqli_query($conn,$query);
 
-      echo'<div class="container">';
-        echo'<table class="responsive-table highlight" style="margin-top:30px;">';
-          echo'<thead>';
-            echo'<tr>';
-                echo'<th data-field="id">Blogger Id</th>';
-                echo'<th data-field="name">User Name</th>';
-                echo'<th data-field="email">E-mail</th>';
-                echo'<th data-field="contact">Contact</th>';
-                echo'<th data-field="date">Date</th>';
-                echo'<th data-field="access"><center>Access</center></th>';
+  $flag=0;
+  while($row = mysqli_fetch_row(($exec)))
+  {
+    $flag=1;
+    break;
+  }
+  if($flag)
+  {
+    echo'<div class="container" id="head">';
+      echo'<table class="responsive-table highlight" style="margin-top:30px;">';
+        echo'<thead>';
+          echo'<tr>';
+              echo'<th data-field="id">Blogger Id</th>';
+              echo'<th data-field="name">User Name</th>';
+              echo'<th data-field="email">E-mail</th>';
+              echo'<th data-field="contact">Contact</th>';
+              echo'<th data-field="date">Date</th>';
+              echo'<th data-field="access"><center>Access</center></th>';
 
-            echo'</tr>';
-          echo'</thead>';
-          echo'<tbody>';
+          echo'</tr>';
+        echo'</thead>';
+        echo'<tbody>';
 
-while($row = mysqli_fetch_row(($exec)))
-{
-  $blogger_id = $row[0];
-  $username = $row[1];
-  $email = $row[2];
-  $contact = $row[3];
-  $creation_date = $row[6];
-  $updation_date = $row[7];
-  
-          
-            echo'<tr id="'.$blogger_id.'">';
-              echo'<td id="'.$blogger_id.'">'.$blogger_id.'</td>';
-              echo'<td>'.$username.'</td>';
-              echo'<td>'.$email.'</td>';
-              echo'<td>'.$contact.'</td>';
-              echo'<td>'.$updation_date.'</td>';
-              echo'<td><a onclick="approveRequest('.$blogger_id.')" href="javascript:void(0);" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">done</i></a></td>';
-              echo'<td><a onclick="deleteRequest('.$blogger_id.')" href="javascript:void(0);" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">delete</i></a></td>';
-                          
-            echo'</tr>';
- }              
-          echo'</tbody>';
-        echo'</table>';
+        $query = "SELECT * FROM blogger_details WHERE active_account = '0'";
+        $exec = mysqli_query($conn,$query);
+        while($row = mysqli_fetch_row(($exec)))
+        {
+          $blogger_id = $row[0];
+          $username = $row[1];
+          $email = $row[2];
+          $contact = $row[3];
+          $creation_date = $row[6];
+          $updation_date = $row[7];
 
+          echo'<tr id="'.$blogger_id.'">';
+            echo'<td id="'.$blogger_id.'">'.$blogger_id.'</td>';
+            echo'<td>'.$username.'</td>';
+            echo'<td>'.$email.'</td>';
+            echo'<td>'.$contact.'</td>';
+            echo'<td>'.$updation_date.'</td>';
+            echo'<td><a onclick="approveRequest('.$blogger_id.')" href="javascript:void(0);" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">done</i></a></td>';
+            echo'<td><a onclick="deleteRequest('.$blogger_id.')" href="javascript:void(0);" class="btn-floating btn-medium waves-effect waves-light red"><i class="material-icons">delete</i></a></td>';
+          echo'</tr>';          
+         }              
+        echo'</tbody>';
+      echo'</table>';        
+    echo'</div>';
+  }
+  else
+  {
+    echo '<div class="container row blue-grey lighten-4" style="margin-top: 50px; color:white; background-color: #fff;transition: box-shadow .25s;border-radius: 2px;">';
+      echo '<div class="col ">';
+        echo '<h3>No New Accounts</h3>';
       echo'</div>';
-      
-      ?>
+    echo '</div>';
+  }
+?>
       
     </body>
     <script src="../materialize/js/materialize.min.js"></script>
