@@ -45,7 +45,7 @@ $exec = mysqli_query($conn, $query);
             <ul class="right hide-on-med-and-down">
               <li><a href="index.php">Home</a></li>
               <li><a href="signup_form.php">Enter</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="contactus.php">Contact Us</a></li>
               <li><a href="#"><i class="material-icons" id="search" onclick="activate()">search</i></a></li>
               <form class="right" id="search_with_details" style="display:none;">
                 <div class="input-field">
@@ -60,7 +60,7 @@ $exec = mysqli_query($conn, $query);
               <li></li>
               <li><a href="index.php">Home</a></li>
               <li><a href="signup_form.php">Enter</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="contactus.php">Contact Us</a></li>
                   <!--<li class="search ">
                     <div class="search-wrapper card">
                         <input id="search"><i class="material-icons">search</i>
@@ -72,7 +72,7 @@ $exec = mysqli_query($conn, $query);
         </nav>
       </div>
     </div>
-    <div id="login" style="display:none;">
+    <div id="blogger_login" style="display:none;">
       <div class="navbar-fixed" >
         <nav>
           <div class="nav-wrapper indigo">
@@ -102,6 +102,36 @@ $exec = mysqli_query($conn, $query);
         </nav>
       </div>
     </div>
+    <div id="admin_login" style="display:none">
+      <div class="navbar-fixed">
+	    <nav>
+	      <div class="nav-wrapper indigo">
+	        <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+	        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+	        <ul class="right hide-on-med-and-down">
+	          <li><a href="index.php">Home</a></li>
+	          <li><a href="new_blogs.php">New Blogs</a></li>
+	          <li><a href="new_accounts.php">New Accounts</a></li>
+	          <li><a href="../backend/login/logout.php">LogOut</a></li>
+	        </ul>
+	        <ul class="side-nav" id="mobile-demo">
+	          <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+	          <li></li>
+	          <li><a href="index.php">Home</a></li>
+	          <li><a href="new_blogs.php">New Blogs</a></li>
+	          <li><a href="new_accounts.php">New Accounts</a></li>
+	          <li><a href="../backend/login/logout.php">LogOut</a></li>
+	              <!--<li class="search ">
+	                <div class="search-wrapper card">
+	                    <input id="search"><i class="material-icons">search</i>
+	                    <div class="search-results" style="display:none"></div>
+	                </div>
+	              </li>-->          
+	        </ul>
+	      </div>
+	    </nav>
+	  </div>
+    </div>
 
 <?php 
 
@@ -125,7 +155,7 @@ while($row = mysqli_fetch_row($exec))
 		echo'<div class="container">';
 			echo'<div class="card hoverable large article">';
 				echo'<div class="card-image">';
-					echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'">';
+					echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'" >';
 					echo'<span class="card-title">'.$row[2].'</span>';
 				echo'</div>';
 				echo'<div class="card-content" style="max-height: 85px;">';
@@ -203,13 +233,24 @@ while($row = mysqli_fetch_row($exec))
 	if(check)
 	{
 		document.getElementById('not_login').style.display="none";
-		document.getElementById('login').style.display="block";
+		if(check == 1)
+		{
+			document.getElementById('blogger_login').style.display="none";
+			document.getElementById('admin_login').style.display="block";
+			console.log("admin");
+		}
+		else
+		{
+			document.getElementById('admin_login').style.display="none";
+			document.getElementById('blogger_login').style.display="block";
+			console.log("blogger");
+		}
 		//console.log("hello");
 	}
 	else
 	{
-
-		document.getElementById('login').style.display="none";
+		document.getElementById('admin_login').style.display="none";
+		document.getElementById('blogger_login').style.display="none";
 		document.getElementById('not_login').style.display="block";
 		//console.log("bye");
 	}

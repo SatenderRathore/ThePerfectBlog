@@ -48,35 +48,66 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 </head>
 
 <body>
-  <div class="navbar-fixed">
-        <nav>
-          <div class="nav-wrapper indigo">
-            <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="index.php">Home</a></li>
-              <li><a href="blogger_account.php">My Articles</a></li>
-              <li><a href="blogger_account_create.php">Create</a></li>
-              <li><a href="../backend/login/logout.php">LogOut</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-              <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
-              <li></li>
-              <li><a href="index.php">Home</a></li>
-              <li><a href="blogger_account.php">My Articles</a></li>
-              <li><a href="blogger_account_create.php">Create</a></li>
-              <li><a href="../backend/login/logout.php">LogOut</a></li>
-                  <!--<li class="search ">
-                    <div class="search-wrapper card">
-                        <input id="search"><i class="material-icons">search</i>
-                        <div class="search-results" style="display:none"></div>
-                    </div>
-                  </li>-->          
-            </ul>
-          </div>
-        </nav>
-      </div>
-
+  <div id="blogger_login">
+    <div class="navbar-fixed" >
+      <nav>
+        <div class="nav-wrapper indigo">
+          <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="blogger_account.php">My Articles</a></li>
+            <li><a href="blogger_account_create.php">Create</a></li>
+            <li><a href="../backend/login/logout.php">LogOut</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+            <li></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="blogger_account.php">My Articles</a></li>
+            <li><a href="blogger_account_create.php">Create</a></li>
+            <li><a href="../backend/login/logout.php">LogOut</a></li>
+                <!--<li class="search ">
+                  <div class="search-wrapper card">
+                      <input id="search"><i class="material-icons">search</i>
+                      <div class="search-results" style="display:none"></div>
+                  </div>
+                </li>-->          
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div id="admin_login" style="display:none">
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper indigo">
+          <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="new_blogs.php">New Blogs</a></li>
+            <li><a href="new_accounts.php">New Accounts</a></li>
+            <li><a href="../backend/login/logout.php">LogOut</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+            <li></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="new_blogs.php">New Blogs</a></li>
+            <li><a href="new_accounts.php">New Accounts</a></li>
+            <li><a href="../backend/login/logout.php">LogOut</a></li>
+                <!--<li class="search ">
+                  <div class="search-wrapper card">
+                      <input id="search"><i class="material-icons">search</i>
+                      <div class="search-results" style="display:none"></div>
+                  </div>
+                </li>-->          
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
 
 <?php  
 
@@ -194,6 +225,22 @@ $blog_category = $output['blog_category'];
     else
     {
       document.getElementById("change_article").style.display="none";
+
+      //....... change menu bar according to admin/bloggers
+      var check = "<?php echo isset($_SESSION['blogger_id']); ?>";
+      console.log(check);
+      if(check == 1)
+      {
+        document.getElementById('blogger_login').style.display="none";
+        document.getElementById('admin_login').style.display="block";
+        console.log("admin");
+      }
+      else
+      {
+        document.getElementById('admin_login').style.display="none";
+        document.getElementById('blogger_login').style.display="block";
+        console.log("blogger");
+      }
     }
 
     //................................

@@ -1,22 +1,6 @@
 <?php
 include("db.php");
 
-
-$blog_id = $_GET['blog_id'];
-
-$query = "SELECT * FROM blog_master WHERE blog_id='$blog_id'";
-$exec = mysqli_query($conn, $query);
-$output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
-// print_r($blog_id);
-/*
-$blog_id = $_GET['blog_id'];
-
-$query = "SELECT * FROM blog_master WHERE blog_id='$blog_id'";
-$exec = mysqli_query($conn, $query);
-$output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
-// print_r($blog_id);*/
-
-
 ?>
 
 
@@ -26,8 +10,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 <title>Full Blog</title>
   <link rel="stylesheet" type="text/css" href="../materialize/css/materialize.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
-  <link rel="stylesheet" type="text/css" href="../materialize/css/blogger_account_article.css">  
-  <link rel="stylesheet" type="text/css" href="../materialize/css/view_full_article.css">
+  <link rel="stylesheet" type="text/css" href="../materialize/css/blogger_account_article.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
   <script>
@@ -92,91 +75,13 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
     </nav>
   </div>
 
-
-<?php  
-
-
-$blog_title = $output['blog_title'];
-$blog_desc  = $output['blog_desc'];
-$blog_category = $output['blog_category'];
-
-	echo'<div class="container">';
-		echo'<div class="card hoverable xlarge article" id="'.$blog_id.'" >';
-			echo'<div class="card-image">';
-				echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.'">';
-				echo'<span class="card-title"><h4>'.$blog_title.'</h4></span>';
-			echo'</div>';
-			
-			echo'<div class="card-content" >';
-			   echo'<p>';
-          echo $blog_desc;
-			 	echo'</p>';
-	  	echo'</div>';
-      echo'<div class="chip" id="category" style="margin-left:20px;margin-bottom:70px;">'.$blog_category.'</div>';
-		
-      echo'<div class="card-action">';
-        echo'<div class="left">';
-          echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
-          echo'<div class="right" style="margin-left:10px">';
-            echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">Sagar Keshri</a></div>';
-            echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">July 10, 2015</a></div>';
-
-          echo'</div>';
-        echo'</div>';
-        
-      echo'</div>';
-    echo'</div> ';
-	echo'</div>';
-  ?>
-  <!-- feedback of the article -->
-  <div class="row container" style="margin-top:20px;">
-    <div class=" card col s12" id="">
-      <div class="comment ">
-        <div class="name"><strong>Sagar Keshri :</strong></div>
-        <br\>
-        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row container " style="margin-top:20px;">
-    <div class=" card col s12" id="">
-      <div class="comment ">
-        <div class="name"><strong>Sagar Keshri :</strong></div>
-        <br\>
-        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row container" style="margin-top:20px;">
-    <div class="card col s12" id="">
-      <div class="comment ">
-        <div class="name"><strong>Sagar Keshri :</strong></div>
-        <br\>
-        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row container" style="margin-top:20px;">
-    <div class="card col s12" id="">
-      <div class="comment ">
-        <div class="name"><strong>Sagar Keshri :</strong></div>
-        <br\>
-        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="row container indigo lighten-5" style="margin-top:20px;">
+  <div class="row container indigo lighten-5" style="margin-top:50px;">
     <div class="note col ">
       <h3>Leave a Comment</h3>
-    <span>Your email address will not be published.</span>
+      <span>Admin will reply to your e-mail id.</span>
     </div>
 
-    <form class="col s12 " id="blog" method="post" action="../backend/feedback.php" enctype="multipart/form-data">
+    <form class="col s12 " id="blog" method="post" action="../backend/contact.php" enctype="multipart/form-data">
       <div class="row">
         <div class="input-field col m12 l12 s12">
           <input id="name" type="text" name="name" class="validate" required>
@@ -222,14 +127,6 @@ $blog_category = $output['blog_category'];
     document.getElementById('search').style.display="block";
     document.getElementById('search_with_details').style.display="none";
   }
-
-  // to check feedback to the article
-  function submitForm() {
-
-
-  }
-
-  
 </script>
 
 </html>

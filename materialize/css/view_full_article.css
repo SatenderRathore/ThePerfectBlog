@@ -1,0 +1,11 @@
+.comment{
+	display: inline-block;
+	position: relative;
+	padding: 10px 10px;
+}
+
+.desc {
+	display: inline-block;
+	position: relative;
+	padding: 10px 0px;
+}

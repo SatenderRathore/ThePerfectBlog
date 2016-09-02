@@ -88,30 +88,32 @@ $exec = mysqli_query($conn,$query);
   {
     $blog_id = $row[0];
 
-    echo'<div class="container" >';
+    echo'<div class="container">';
       echo'<div class="card hoverable large article" id="'.$blog_id.'">';
         echo'<div class="card-image">';
-          echo'<img src="showimage.php?blog_id='.$blog_id.'>';
+          echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.' >';
           echo'<span class="card-title">'.$row[2].'</span>';
         echo'</div>';
         echo'<div class="card-content" style="max-height: 85px;">';
-          echo'<p>';
-        echo $row[3]; 
-        echo'</p>';
-          echo'</div>';
+            echo'<p>';
+              echo $row[3]; 
+            echo'</p>';
+        echo'</div>';
 
-       echo'<a class="btn-floating btn-medium waves-effect waves-light left green " style="margin-left:15px; margin-top:15px;" onclick="approveBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">done</i>/a>';
-        echo'<a class="btn-floating btn-medium waves-effect waves-light left red" style="margin-left:15px; margin-top:15px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
-
+        echo'<a href="view_full_article.php?blog_id='.$blog_id.'" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
 
         echo'<div class="card-action" style="padding:10px 20px; height:50px;">';
           echo'<div class="left">';
-          echo'<div class="left"><img src="../images/blogicon.jpg" alt="img"></div>';
-          echo'<div class="right" style="margin-left:10px">';
-            echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[5].'</a></div>';
-            echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[8].'</a></div>';
-
+            echo'<div class="left"><img src="../images/blogicon.jpg" alt="img"></div>';
+            echo'<div class="right" style="margin-left:10px">';
+              echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[5].'</a></div>';
+              echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[8].'</a></div>';
+            echo'</div>';
           echo'</div>';
+
+          echo'<div class="right">';
+            echo'<a class="btn-floating btn-medium waves-effect waves-light left green " style="margin-left:15px;" onclick="approveBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">done</i>/a>';
+            echo'<a class="btn-floating btn-medium waves-effect waves-light left red" style="margin-left:15px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
           echo'</div>';
         echo'</div>';
       echo'</div>';
