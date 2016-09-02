@@ -135,18 +135,21 @@ $blog_category = $output['blog_category'];
 
 $query = "SELECT * FROM feedback WHERE blog_id = '$blog_id'";
 $exec = mysqli_query($conn,$query);
-$result = mysqli_fetch_array($exec, MYSQLI_ASSOC);
-
-
-  echo'<div class="row container" style="margin-top:20px;">';
-    echo'<div class=" card col s12" id="">';
-      echo'<div class="comment ">';
-        echo'<div class="name"><strong>'.$result['name'].' :</strong></div>';
-        echo'<br\>';
-        echo'<div class="desc" style="font-size: 0.85em;">'.$result['comment'].'</div>';
+// $result = mysqli_fetch_array($exec, MYSQLI_ASSOC);
+while($row = mysqli_fetch_row($exec))
+{
+  $name = $row[2];
+  $comment = $row[4];
+    echo'<div class="row container" style="margin-top:20px;">';
+      echo'<div class=" card col s12" id="">';
+        echo'<div class="comment ">';
+          echo'<div class="name"><strong>'.$name.' :</strong></div>';
+          echo'<br\>';
+          echo'<div class="desc" style="font-size: 0.85em;">'.$comment.'</div>';
+        echo'</div>';
       echo'</div>';
     echo'</div>';
-  echo'</div>';
+}
 ?>
   
 
