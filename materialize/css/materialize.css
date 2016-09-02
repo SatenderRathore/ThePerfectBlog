@@ -4570,7 +4570,6 @@ small {
 }
 .card.xlarge .card-action{
   max-height: 50px;
-  bottom: 15px;
 }
 
 .card.small {

@@ -39,8 +39,9 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 
   <script>
     $(document).ready(function(){
-    $(".button-collapse").sideNav();        
-  });
+      $(".button-collapse").sideNav();    
+      $('input#input_text, textarea#textarea1').characterCounter();      
+    });
 
 
 
@@ -51,8 +52,8 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
   <div id="blogger_login">
     <div class="navbar-fixed" >
       <nav>
-        <div class="nav-wrapper indigo">
-          <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+        <div class="nav-wrapper blue-grey">
+          <a href="index.php" class="brand-logo" style="padding-left:20px;">FNW</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <li><a href="index.php">Home</a></li>
@@ -61,7 +62,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
             <li><a href="../backend/login/logout.php">LogOut</a></li>
           </ul>
           <ul class="side-nav" id="mobile-demo">
-            <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+            <li  style="height:80px; margin-bottom:50px; padding-top:20px;" class="center"><a href="index.php"><img src="../images/icon.png" class="circle" alt="TPB icon"></a></li>
             <li></li>
             <li><a href="index.php">Home</a></li>
             <li><a href="blogger_account.php">My Articles</a></li>
@@ -81,7 +82,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
   <div id="admin_login" style="display:none">
     <div class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper indigo">
+        <div class="nav-wrapper blue-grey">
           <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
@@ -91,7 +92,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
             <li><a href="../backend/login/logout.php">LogOut</a></li>
           </ul>
           <ul class="side-nav" id="mobile-demo">
-            <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+            <li  style="height:80px; margin-bottom:50px; padding-top:20px;" class="center"><a href="index.php"><img src="../images/icon.png" class="circle" alt="TPB icon"></a></li>
             <li></li>
             <li><a href="index.php">Home</a></li>
             <li><a href="new_blogs.php">New Blogs</a></li>
@@ -124,14 +125,15 @@ $blog_category = $output['blog_category'];
       echo'</div>';
       
       echo'<div class="card-content" >';
-         echo'<p>';
+        echo'<p>';
           echo $blog_desc;
         echo'</p>';
       echo'</div>';
+
       echo'<div class="chip" id="category" style="margin-left:20px;margin-bottom:70px;">'.$blog_category.'</div>';
     
       echo'<div class="card-action">';
-        echo'<div class="left">';
+        echo'<div class="left" style="margin-top:-15px;">';
           echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
           echo'<div class="right" style="margin-left:10px">';
             echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">Sagar Keshri</a></div>';
@@ -139,10 +141,17 @@ $blog_category = $output['blog_category'];
 
           echo'</div>';
         echo'</div>';
-        echo'<div class="right" id="change_article">';
-          echo'<a href="edit_blog.php?blog_id='.$blog_id.'" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a>';
-          echo'<a class="btn-floating btn-medium waves-effect waves-light red" style="margin-left:10px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
-
+        
+        echo'<div class="right" id="change_article" style="margin-top:-15px;">';
+          echo'<div class="fixed-action-btn horizontal" style="position: inherit">';
+              echo'<a class="btn-floating btn-medium red">';
+                  echo'<i class="large material-icons">menu</i>';
+              echo'</a>';
+              echo'<ul>';
+                echo'<li style="margin: 5px 15px 0 0;"><a href="edit_blog.php?blog_id='.$blog_id.'" class="btn-floating btn-medium waves-effect waves-light green"><i class="material-icons">mode_edit</i></a></li>';
+                echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating btn-medium waves-effect waves-light red" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a></li>';
+              echo'</ul>';
+          echo'</div>';
         echo'</div>';
       echo'</div>';
     echo'</div> ';
@@ -150,7 +159,7 @@ $blog_category = $output['blog_category'];
   ?>
   <!-- feedback of the article -->
 
-  <div class="row container indigo lighten-5" style="margin-top:50px;">
+  <div class="row container hoverable indigo lighten-5" style="margin-top:50px;">
     <div class="note col ">
       <h3>Leave a Comment</h3>
     <span>Your email address will not be published.</span>
@@ -177,7 +186,7 @@ $blog_category = $output['blog_category'];
 
       <div class="row">
         <div class="input-field col col m12 l12 s12">
-          <textarea id="comment" name="comment" class="materialize-textarea"></textarea>
+          <textarea id="comment" name="comment" class="materialize-textarea" length="120" maxlength="120"></textarea>
           <label for="comment" data-error="Please Write Something!">Comments</label>
         </div>
       </div>

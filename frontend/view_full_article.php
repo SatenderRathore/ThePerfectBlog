@@ -3,8 +3,12 @@ include("db.php");
 
 session_start();
 $blog_id = $_GET['blog_id'];
+<<<<<<< HEAD
 // $_SESSION['blog_id'] = $blog_id;
 // print_r($_SESSION['blog_id']);
+=======
+//print_r($blog_id);
+>>>>>>> 7ca52ccdf2d72208f2230c0cc6244323b4c3104f
 
 $query = "SELECT * FROM blog_master WHERE blog_id='$blog_id'";
 $exec = mysqli_query($conn, $query);
@@ -34,8 +38,9 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 
   <script>
   	$(document).ready(function(){
-    $(".button-collapse").sideNav();        
-	});
+      $(".button-collapse").sideNav();    
+      $('input#input_text, textarea#textarea1').characterCounter();    
+	  });
   </script>
   <style>
     .err{
@@ -53,12 +58,12 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 <body>
 	<div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper indigo">
-        <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+      <div class="nav-wrapper blue-grey">
+        <a href="index.php" class="brand-logo" style="padding-left:20px;">FNW</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="index.php">Home</a></li>
-          <li><a href="signup_form.php">Enter</a></li>
+          <li><a href="signup_form.php">Let's Start</a></li>
           <li><a href="contactus.php">Contact Us</a></li>
           <li><a href="#"><i class="material-icons" id="search" onclick="activate()">search</i></a></li>
           <form class="right" id="search_with_details" style="display:none;">
@@ -70,10 +75,10 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
           </form>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-          <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+          <li  style="height:80px; margin-bottom:50px; padding-top:20px;" class="center"><a href="index.php"><img src="../images/icon.png" class="circle" alt="TPB icon"></a></li>
           <li></li>
           <li><a href="index.php">Home</a></li>
-          <li><a href="signup_form.php">Enter</a></li>
+          <li><a href="signup_form.php">Let's Start</a></li>
           <li><a href="contactus.php">Contact Us</a></li>
           <li><a href="#"><i class="material-icons" id="search" onclick="activate()">search</i></a></li>
           <form class="right" id="search_with_details" style="display:none;">
@@ -117,7 +122,7 @@ $blog_category = $output['blog_category'];
       echo'<div class="chip" id="category" style="margin-left:20px;margin-bottom:70px;">'.$blog_category.'</div>';
 		
       echo'<div class="card-action">';
-        echo'<div class="left">';
+        echo'<div class="left"style="margin-top:-15px;">';
           echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
           echo'<div class="right" style="margin-left:10px">';
             echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">Sagar Keshri</a></div>';
@@ -154,16 +159,26 @@ while($row = mysqli_fetch_row($exec))
   
 
 
+<<<<<<< HEAD
   <div class="row container indigo lighten-5" style="margin-top:20px;">
+=======
+  <div class="row container hoverable indigo lighten-5" style="margin-top:50px;">
+>>>>>>> 7ca52ccdf2d72208f2230c0cc6244323b4c3104f
     <div class="note col ">
       <h3>Leave a Comment</h3>
     <span>Your email address will not be published.</span>
     </div>
 
     <form class="col s12 " id="blog" method="post" action="../backend/feedback.php" enctype="multipart/form-data">
+<<<<<<< HEAD
     <?php 
     $_SESSION['blog_id'] = $blog_id;
     ?>
+=======
+      <?php
+      $_SESSION['blog_id']=$blog_id;
+      ?>
+>>>>>>> 7ca52ccdf2d72208f2230c0cc6244323b4c3104f
       <div class="row">
         <div class="input-field col m12 l12 s12">
           <input id="name" type="text" name="name" class="validate" required>
@@ -184,7 +199,7 @@ while($row = mysqli_fetch_row($exec))
 
       <div class="row">
         <div class="input-field col col m12 l12 s12">
-          <textarea id="comment" name="comment" class="materialize-textarea"></textarea>
+          <textarea id="comment" name="comment" class="materialize-textarea" length="120" maxlength="120"></textarea>
           <label for="comment" data-error="Please Write Something!">Comments</label>
         </div>
       </div>
@@ -193,6 +208,35 @@ while($row = mysqli_fetch_row($exec))
       <i class="material-icons right">send</i>
       </button>
     </form>
+  </div>
+
+  <!-- showing the comments -->
+  <div class="container">
+    <h4 style="color:#ccc">Comments : </h4>
+
+  </div>
+  <?php
+  $query = "SELECT * FROM feedback WHERE blog_id = '$blog_id'";
+  $exec = mysqli_query($conn,$query);
+  // $result = mysqli_fetch_array($exec, MYSQLI_ASSOC);
+  while($row = mysqli_fetch_row($exec))
+  {
+    $name = $row[2];
+    $comment = $row[4];
+      echo'<div class="row container" style="margin-top:20px;">';
+        echo'<div class=" card col s12" id="">';
+          echo'<div class="comment ">';
+            echo'<div class="name"><strong>'.$name.' :</strong></div>';
+            echo'<br\>';
+            echo'<div class="desc" style="font-size: 0.85em;">'.$comment.'</div>';
+          echo'</div>';
+        echo'</div>';
+      echo'</div>';
+  }
+  ?>
+
+
+
   </div>
   
 </body>

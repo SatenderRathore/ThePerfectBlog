@@ -11,31 +11,6 @@ if(!isset($_SESSION['email']))
 $query = "SELECT * FROM blog_master WHERE blog_is_active = '0'";
 $exec = mysqli_query($conn,$query);
 
-// while($row = mysqli_fetch_row(($exec)))
-// {
-
-// 	$blog_id = $row[0];
-// 	echo '<div id=' . $blog_id . '>';
-// 	echo '<h1>hello</h1>';
-// 	// print_r($row);
-// 	print_r($row[0] . ", ");
-// 	print_r($row[1] . ", ");
-// 	print_r($row[2] . ", ");
-// 	print_r($row[3] . ", ");
-// 	print_r($row[4] . ", ");
-// 	print_r($row[5] . ", ");
-// 	print_r($row[6] . ", ");
-// 	print_r($row[7] . ", ");
-// 	print_r($row[8] . ", ");
-
-	
-// 	echo '<a onclick="approveBlog('.$blog_id.')" href="javascript:void(0);">approve blog </a>';
-// 	echo '</div>';
-
-// 	echo '<div id="a"></div>';
-// }
-
-
 ?>
 
 <html>
@@ -54,8 +29,8 @@ $exec = mysqli_query($conn,$query);
 <body>
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper indigo">
-        <a href="index.php" class="brand-logo" style="padding-left:20px;" >TPB</a>
+      <div class="nav-wrapper blue-grey">
+        <a href="index.php" class="brand-logo" style="padding-left:20px;">FNW</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="index.php">Home</a></li>
@@ -64,7 +39,7 @@ $exec = mysqli_query($conn,$query);
           <li><a href="../backend/login/logout.php">LogOut</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-          <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
+          <li  style="height:80px; margin-bottom:50px; padding-top:20px;" class="center"><a href="index.php"><img src="../images/icon.png" class="circle" alt="TPB icon"></a></li>
           <li></li>
           <li><a href="index.php">Home</a></li>
           <li><a href="new_blogs.php">New Blogs</a></li>
@@ -81,71 +56,110 @@ $exec = mysqli_query($conn,$query);
     </nav>
   </div>
 
-  <?php 
-
-
+<?php
+  $i=0;
   while($row = mysqli_fetch_row($exec))
   {
-    $blog_id = $row[0];
 
-    echo'<div class="container">';
-      echo'<div class="card hoverable large article" id="'.$blog_id.'">';
-        echo'<div class="card-image">';
-          echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id.' >';
-          echo'<span class="card-title">'.$row[2].'</span>';
-        echo'</div>';
-        echo'<div class="card-content" style="max-height: 85px;">';
-            echo'<p>';
-              echo $row[3]; 
-            echo'</p>';
-        echo'</div>';
+        $blog_id[$i] = $row[0];
+        $blog_title[$i] = $row[2];
+        $blog_desc[$i] = $row[3];
+        $blog_category[$i] = $row[4];
+        $blog_author[$i] = $row[5];
+        $creation_date[$i] = $row[8];
+        $_SESSION['blog_id'] = $blog_id;
+        echo'<div class="container">';
+          echo'<div class="card hoverable large article" id="'.$blog_id[$i].'" style="margin-top:40px; margin-bottom:40px;">';
+            echo'<div class="card-image">';
+              echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id[$i].'">';
+              echo'<span class="card-title">'.$blog_title[$i].'</span>';
+            echo'</div>';
+            echo'<div class="card-content " style="max-height: 85px;">';
+              echo'<p>';
+                echo $blog_desc[$i]; 
+              echo'</p>';
+            echo'</div>';
+              
+            echo'<div class="chip" id="category" style="margin-left:20px;margin-top:20px;">'.$blog_category[$i].'</div>';
+          
+            echo'<div class="card-action" style="padding:5px 20px; height:50px;">';
+              echo'<div class="left">';
+                echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
+                echo'<div class="right" style="margin-left:10px">';
+                  echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$blog_author[$i].'</a></div>';
+                  echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$creation_date[$i].'</a></div>';
 
-        echo'<a href="view_full_article.php?blog_id='.$blog_id.'" class="waves-effect waves-light btn " style="margin:15px">Read More</a>';
-
-        echo'<div class="card-action" style="padding:10px 20px; height:50px;">';
-          echo'<div class="left">';
-            echo'<div class="left"><img src="../images/blogicon.jpg" alt="img"></div>';
-            echo'<div class="right" style="margin-left:10px">';
-              echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[5].'</a></div>';
-              echo'<div ><a href="#" style="font-size:0.75em; color: #757575">'.$row[8].'</a></div>';
+                echo'</div>';
+              echo'</div>';
+              
+              echo'<div class="right">';
+                echo'<div class="fixed-action-btn horizontal " style="position: inherit">';
+                    echo'<a class="btn-floating btn-medium red">';
+                        echo'<i class="large material-icons">menu</i>';
+                    echo'</a>';
+                    echo'<ul>';
+                      echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating left green modal-trigger" href="#modal'.$i.'"><i class="material-icons">aspect_ratio</i></a></li>';
+                      echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating left blue" href="blogger_account_article.php?blog_id='.$blog_id[$i].'"><i class="material-icons">comment</i></a></li>';
+                      echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating btn-medium waves-effect waves-light left green " onclick="approveBlog('.$blog_id[$i].')" href="javascript:void(0);"><i class="material-icons">done</i>/a></li>';
+                      echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating btn-medium waves-effect waves-light left red" onclick="deleteBlog('.$blog_id[$i].')" href="javascript:void(0);"><i class="material-icons">delete</i></a></li>';
+                      
+                    echo'</ul>';
+                echo'</div>';
+              echo'</div>';
             echo'</div>';
           echo'</div>';
+        echo'</div>';
 
-          echo'<div class="right">';
-            echo'<a class="btn-floating btn-medium waves-effect waves-light left green " style="margin-left:15px;" onclick="approveBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">done</i>/a>';
-            echo'<a class="btn-floating btn-medium waves-effect waves-light left red" style="margin-left:15px;" onclick="deleteBlog('.$blog_id.')" href="javascript:void(0);"><i class="material-icons">delete</i></a>';
+    echo'<div id="modal'.$i.'" class="modal modal-fixed-footer" style="width:70%; margin-top:50px;">';
+      echo '<div class="modal-content" style="padding:0">';
+        echo'<div class="card xlarge" style="margin-top:-5px; margin-bottom:-5px; box-shadow: none;">';
+          echo'<div class="card-image">';
+            echo'<img class="responsive-img" src="showimage.php?blog_id='.$blog_id[$i].'" >';
+            echo'<span class="card-title">'.$blog_title[$i].'</span>';
+          echo'</div>';
+
+          echo'<div class="card-content" style="padding-bottom:20px;">';
+              echo'<p>';
+              echo $blog_desc[$i]; 
+            echo'</p>';
+          echo '</div>';
+          echo'<div class="chip" id="category" style="margin-left:20px;margin-bottom:20px;">'.$blog_category[$i].'</div>';
+          echo'</div>';
+      echo '</div>';
+        echo'<div class="modal-footer">';
+        echo'<div class="left">';
+          echo'<div class="left" style="height:32; width:32;"><img src="../images/blogicon.jpg" alt="img" height="32" width="32"></div>';
+          echo'<div class="right" style="margin-left:10px">';
+            echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$blog_author[$i].'</a></div>';
+            echo'<div ><a href="#" style="font-size:0.8em; color: #757575; font-weight:bold">'.$creation_date[$i].'</a></div>';
+
+          echo'</div>';
+        echo'</div>';
+        echo'<div class="right">';
+          echo'<div class="fixed-action-btn horizontal" style="position: inherit">';
+              echo'<a class="btn-floating btn-medium red">';
+                  echo'<i class="large material-icons">menu</i>';
+              echo'</a>';
+              echo'<ul>';
+                echo'<li style="margin: 5px 15px 0 0;"><a class="btn-floating blue" href="view_full_article.php?blog_id='.$blog_id[$i].'"><i class="material-icons">comment</i></a></li>';
+              echo'</ul>';
           echo'</div>';
         echo'</div>';
       echo'</div>';
     echo'</div>';
 
 
-    // echo'<div class="container">';
-    //  echo'<div class="card hoverable large article">';
-    //    echo'<div class="card-image">';
-    //      echo'<img src="../images/sample-1.jpg">';
-    //      echo'<span class="card-title">' . $row[2] . '</span>';
-    //    echo'</div>';
-    //    echo'<div class="card-content">';
-    //      echo'<p>';
-    //      echo $row[3];
-          
-    //    echo'</p>';
-    //      echo'</div>';
-    //    echo'<div class="card-action" style="padding:10px 20px;">';
-    //      echo'<a href="#">Read More</a>';
-    //    echo'</div>';
-    //  echo'</div>';
-
-    // echo'</div>';
+        $i++;
   }
-  ?>  
+?>
+
 </body>
 
 <script src="../materialize/js/materialize.min.js"></script>
 <script>
   $(document).ready(function(){
     $(".button-collapse").sideNav();        
+    $('.modal-trigger').leanModal();        
   });
 
 </script>
