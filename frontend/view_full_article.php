@@ -131,45 +131,24 @@ $blog_category = $output['blog_category'];
 	echo'</div>';
   ?>
   <!-- feedback of the article -->
-  <div class="row container" style="margin-top:20px;">
-    <div class=" card col s12" id="">
-      <div class="comment ">
-        <div class="name"><strong>Sagar Keshri :</strong></div>
-        <br\>
-        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
-      </div>
-    </div>
-  </div>
+<?php
 
-  <div class="row container " style="margin-top:20px;">
-    <div class=" card col s12" id="">
-      <div class="comment ">
-        <div class="name"><strong>Sagar Keshri :</strong></div>
-        <br\>
-        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
-      </div>
-    </div>
-  </div>
+$query = "SELECT * FROM feedback WHERE blog_id = '$blog_id'";
+$exec = mysqli_query($conn,$query);
+$result = mysqli_fetch_array($exec, MYSQLI_ASSOC);
 
-  <div class="row container" style="margin-top:20px;">
-    <div class="card col s12" id="">
-      <div class="comment ">
-        <div class="name"><strong>Sagar Keshri :</strong></div>
-        <br\>
-        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
-      </div>
-    </div>
-  </div>
 
-  <div class="row container" style="margin-top:20px;">
-    <div class="card col s12" id="">
-      <div class="comment ">
-        <div class="name"><strong>Sagar Keshri :</strong></div>
-        <br\>
-        <div class="desc" style="font-size: 0.85em;">dfakjafhakfkasfaaskfjkadsfa</div>
-      </div>
-    </div>
-  </div>
+  echo'<div class="row container" style="margin-top:20px;">';
+    echo'<div class=" card col s12" id="">';
+      echo'<div class="comment ">';
+        echo'<div class="name"><strong>'.$result['name'].' :</strong></div>';
+        echo'<br\>';
+        echo'<div class="desc" style="font-size: 0.85em;">'.$result['comment'].'</div>';
+      echo'</div>';
+    echo'</div>';
+  echo'</div>';
+?>
+  
 
 
   <div class="row container indigo lighten-5" style="margin-top:20px;">
