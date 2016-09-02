@@ -228,12 +228,12 @@ while($row = mysqli_fetch_row($exec))
 	});
 
 	//....... change menu bar if session is logged in
-	var check = "<?php echo isset($_SESSION['blogger_id']); ?>";
-	console.log(check);
+	var check = "<?php echo ($_SESSION['blogger_id']); ?>";
+	// console.log(check);
 	if(check)
 	{
 		document.getElementById('not_login').style.display="none";
-		if(check == 1)
+		if(check == "admin")
 		{
 			document.getElementById('blogger_login').style.display="none";
 			document.getElementById('admin_login').style.display="block";

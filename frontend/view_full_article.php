@@ -1,8 +1,10 @@
 <?php
 include("db.php");
 
-
+session_start();
 $blog_id = $_GET['blog_id'];
+// $_SESSION['blog_id'] = $blog_id;
+// print_r($_SESSION['blog_id']);
 
 $query = "SELECT * FROM blog_master WHERE blog_id='$blog_id'";
 $exec = mysqli_query($conn, $query);
@@ -177,6 +179,9 @@ $blog_category = $output['blog_category'];
     </div>
 
     <form class="col s12 " id="blog" method="post" action="../backend/feedback.php" enctype="multipart/form-data">
+    <?php 
+    $_SESSION['blog_id'] = $blog_id;
+    ?>
       <div class="row">
         <div class="input-field col m12 l12 s12">
           <input id="name" type="text" name="name" class="validate" required>
