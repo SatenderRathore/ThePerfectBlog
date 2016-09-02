@@ -57,7 +57,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="index.php">Home</a></li>
-          <li><a href="signup_form.php">Enter</a></li>
+          <li><a href="signup_form.php">Let's Start</a></li>
           <li><a href="contactus.php">Contact Us</a></li>
           <li><a href="#"><i class="material-icons" id="search" onclick="activate()">search</i></a></li>
           <form class="right" id="search_with_details" style="display:none;">
@@ -72,7 +72,7 @@ $output = mysqli_fetch_array($exec, MYSQLI_ASSOC);
           <li  style="height:80px; margin-bottom:50px; padding-top:20px;" class="center"><a href="index.php"><img src="../images/icon.png" class="circle" alt="TPB icon"></a></li>
           <li></li>
           <li><a href="index.php">Home</a></li>
-          <li><a href="signup_form.php">Enter</a></li>
+          <li><a href="signup_form.php">Let's Start</a></li>
           <li><a href="contactus.php">Contact Us</a></li>
           <li><a href="#"><i class="material-icons" id="search" onclick="activate()">search</i></a></li>
           <form class="right" id="search_with_details" style="display:none;">
@@ -173,7 +173,10 @@ $blog_category = $output['blog_category'];
   </div>
 
   <!-- showing the comments -->
+  <div class="container">
+    <h4 style="color:#ccc">Comments : </h4>
 
+  </div>
   <?php
   $query = "SELECT * FROM feedback WHERE blog_id = '$blog_id'";
   $exec = mysqli_query($conn,$query);

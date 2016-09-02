@@ -125,10 +125,11 @@ $blog_category = $output['blog_category'];
       echo'</div>';
       
       echo'<div class="card-content" >';
-         echo'<p>';
+        echo'<p>';
           echo $blog_desc;
         echo'</p>';
       echo'</div>';
+
       echo'<div class="chip" id="category" style="margin-left:20px;margin-bottom:70px;">'.$blog_category.'</div>';
     
       echo'<div class="card-action">';
@@ -185,7 +186,7 @@ $blog_category = $output['blog_category'];
 
       <div class="row">
         <div class="input-field col col m12 l12 s12">
-          <textarea id="comment" name="comment" class="materialize-textarea" length="10" maxlength="120"></textarea>
+          <textarea id="comment" name="comment" class="materialize-textarea" length="120" maxlength="120"></textarea>
           <label for="comment" data-error="Please Write Something!">Comments</label>
         </div>
       </div>

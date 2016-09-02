@@ -30,7 +30,9 @@ $exec = mysqli_query($conn, $query);
 // print_r("hello");
 // print_r($blog_id);
 // printf("%d",$exec);
-echo '<h1> Blog Deleted Successfully</h1>';
+echo'<div class="row" style="color:#ccc; padding:20px;">';
+  echo '<h3> Blog Deleted Successfully</h3>';
+echo '</div>';
 // print_r("Request approved successfully");
 
 ?>
