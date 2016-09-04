@@ -48,6 +48,9 @@ if(isset($_POST['submit']))
 	else
 	{
 		$_SESSION['refresh'] = 1;
+		$_SESSION['blog_title'] = $blog_title;
+		$_SESSION['blog_category'] = $blog_category;
+		$_SESSION['blog_desc'] = $blog_desc;
 		?>
 
 

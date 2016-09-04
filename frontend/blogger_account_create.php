@@ -10,10 +10,6 @@ if(!isset($_SESSION['email']))
 
 //if blogger submit any other file instead of image
 
-if(isset($_SESSION['refresh']))
-{
-  echo "hello";
-}
 
 ?>
 
@@ -128,3 +124,25 @@ if(isset($_SESSION['refresh']))
       
     </script>
   </html>
+<?php
+  
+  if(isset($_SESSION['refresh']))
+  {
+    echo "hello";
+  ?>
+  <script type="text/javascript">
+    
+     function oldData()
+      {
+        document.getElementById('blog_title').value = '<?php echo "$blog_title" ;?>'
+        document.getElementById('blog_cat').value   = '<?php echo "$blog_category"; ?>' 
+        document.getElementById('blog_desc').value  = '<?php echo "$blog_description"; ?>'
+         
+      }
+      oldData();
+     //  window.onload = oldData;
+  </script>
+  <?php
+  }
+
+?>
