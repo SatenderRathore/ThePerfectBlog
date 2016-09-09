@@ -60,7 +60,7 @@ if(isset($_SESSION['email']))
       </div>
       
       <div class="row container">
-        <div class="form card-panel hoverable col m6 l6 s10 offset-s1 left">
+        <div class="form card-panel hoverable col m6 l6 s10 offset-s1 offset-m3 offset-l3" id="signup">
           <h4 class="head">Sign Up</h4>
           <form id="signup" class="" method="post" action="../backend/signup/signup.php">
             <div class="row">
@@ -105,10 +105,13 @@ if(isset($_SESSION['email']))
             <center><button id="button" class="btn waves-effect waves-light " type="submit" name="submit" style="margin-bottom:20px;">Submit
             <i class="material-icons right">send</i>
             </button></center>
+            <div class="row">
+            <center><a href="#" onclick="redirect_to_login_page()">Already Signed Up! Login ?</a></center>
+            </div>
           </form>
         </div>
 
-        <div class="form card-panel hoverable col m5 l5 s10 pull-s1 right">
+        <div class="form card-panel hoverable col m6 l6 s10 offset-s1 offset-m3 offset-l3" id="login" style="display:none">
           <h4 class="head">Sign In</h4>
           <form class="" id="login_form" method="post" action="../backend/login/login.php">               
             <div class="row">
@@ -131,9 +134,13 @@ if(isset($_SESSION['email']))
             <!-- will unable if emailId-password combination does not match -->
             <div class="err" id="submit_result_login"></div>
 
-            <center><button id="buttonlogin" class="btn waves-effect waves-light " style="margin-bottom:20px;" type="button" name="button" onclick="submitForm()">Submit
+            <center><button id="buttonlogin" class="btn waves-effect waves-light " style="margin-bottom:20px;margin-top:-20px;" type="button" name="button" onclick="submitForm()">Submit
             <i class="material-icons right">send</i>
             </button></center>
+
+            <div class="row">
+            <center><a href="#" onclick="redirect_to_signup_page()">Did not register! SignUp ?</a></center>
+            </div>
           </form>
         </div>
       </div>
@@ -250,7 +257,19 @@ if(isset($_SESSION['email']))
   <!-- For login part -->
 
   <script type="text/javascript">
-    
+    function redirect_to_login_page()
+    {
+      document.getElementById("signup").style.display="none";
+      document.getElementById("login").style.display="block"; 
+    }
+
+    function redirect_to_signup_page()
+    {
+      
+      document.getElementById("signup").style.display="block";
+      document.getElementById("login").style.display="none";      
+    }
+
     function checkEmailLogin()
       {
         var email = document.getElementById("emailid").value;
