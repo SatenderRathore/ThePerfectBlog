@@ -3,12 +3,9 @@ include("db.php");
 
 session_start();
 $blog_id = $_GET['blog_id'];
-<<<<<<< HEAD
 // $_SESSION['blog_id'] = $blog_id;
 // print_r($_SESSION['blog_id']);
-=======
 //print_r($blog_id);
->>>>>>> 7ca52ccdf2d72208f2230c0cc6244323b4c3104f
 
 $query = "SELECT * FROM blog_master WHERE blog_id='$blog_id'";
 $exec = mysqli_query($conn, $query);
@@ -159,26 +156,18 @@ while($row = mysqli_fetch_row($exec))
   
 
 
-<<<<<<< HEAD
   <div class="row container indigo lighten-5" style="margin-top:20px;">
-=======
   <div class="row container hoverable indigo lighten-5" style="margin-top:50px;">
->>>>>>> 7ca52ccdf2d72208f2230c0cc6244323b4c3104f
     <div class="note col ">
       <h3>Leave a Comment</h3>
     <span>Your email address will not be published.</span>
     </div>
 
     <form class="col s12 " id="blog" method="post" action="../backend/feedback.php" enctype="multipart/form-data">
-<<<<<<< HEAD
-    <?php 
-    $_SESSION['blog_id'] = $blog_id;
-    ?>
-=======
+
       <?php
       $_SESSION['blog_id']=$blog_id;
       ?>
->>>>>>> 7ca52ccdf2d72208f2230c0cc6244323b4c3104f
       <div class="row">
         <div class="input-field col m12 l12 s12">
           <input id="name" type="text" name="name" class="validate" required>
@@ -210,31 +199,7 @@ while($row = mysqli_fetch_row($exec))
     </form>
   </div>
 
-  <!-- showing the comments -->
-  <div class="container">
-    <h4 style="color:#ccc">Comments : </h4>
-
-  </div>
-  <?php
-  $query = "SELECT * FROM feedback WHERE blog_id = '$blog_id'";
-  $exec = mysqli_query($conn,$query);
-  // $result = mysqli_fetch_array($exec, MYSQLI_ASSOC);
-  while($row = mysqli_fetch_row($exec))
-  {
-    $name = $row[2];
-    $comment = $row[4];
-      echo'<div class="row container" style="margin-top:20px;">';
-        echo'<div class=" card col s12" id="">';
-          echo'<div class="comment ">';
-            echo'<div class="name"><strong>'.$name.' :</strong></div>';
-            echo'<br\>';
-            echo'<div class="desc" style="font-size: 0.85em;">'.$comment.'</div>';
-          echo'</div>';
-        echo'</div>';
-      echo'</div>';
-  }
-  ?>
-
+  
 
 
   </div>
