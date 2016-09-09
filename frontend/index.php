@@ -256,15 +256,10 @@ while($row = mysqli_fetch_row($exec))
 		document.getElementById('search_with_details').style.display="none";
 	}
 
-	
-
 	//....... change menu bar if session is logged in
 	var check = "<?php echo ($_SESSION['blogger_id']); ?>";
-<<<<<<< HEAD
-	// console.log(check);
-=======
+
 	console.log(check);
->>>>>>> 7ca52ccdf2d72208f2230c0cc6244323b4c3104f
 	if(check)
 	{
 		document.getElementById('not_login').style.display="none";
