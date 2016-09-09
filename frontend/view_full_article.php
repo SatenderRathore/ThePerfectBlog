@@ -134,6 +134,8 @@ $blog_category = $output['blog_category'];
   ?>
   <!-- feedback of the article -->
 <?php
+echo'<div class="row container" >';
+echo '<h3 style="color:#ccc">Comments</h3>';
 
 $query = "SELECT * FROM feedback WHERE blog_id = '$blog_id'";
 $exec = mysqli_query($conn,$query);
@@ -142,7 +144,7 @@ while($row = mysqli_fetch_row($exec))
 {
   $name = $row[2];
   $comment = $row[4];
-    echo'<div class="row container" style="margin-top:20px;">';
+    echo'<div class="row" >';
       echo'<div class=" card col s12" id="">';
         echo'<div class="comment ">';
           echo'<div class="name"><strong>'.$name.' :</strong></div>';
@@ -152,11 +154,11 @@ while($row = mysqli_fetch_row($exec))
       echo'</div>';
     echo'</div>';
 }
-?>
-  
+
+echo '</div>';
+  ?>
 
 
-  <div class="row container indigo lighten-5" style="margin-top:20px;">
   <div class="row container hoverable indigo lighten-5" style="margin-top:50px;">
     <div class="note col ">
       <h3>Leave a Comment</h3>
@@ -198,11 +200,7 @@ while($row = mysqli_fetch_row($exec))
       </button>
     </form>
   </div>
-
-  
-
-
-  </div>
+ 
   
 </body>
 
