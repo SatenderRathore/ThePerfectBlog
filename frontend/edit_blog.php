@@ -138,20 +138,11 @@ $blog_description = $output['blog_desc'];
       $(document).ready(function(){
         $(".button-collapse").sideNav();        
       });
-
+      alert("hello");
+        document.getElementById('blog_title').value = '<?php echo $blog_title ;?>'
+        document.getElementById('blog_cat').value   = '<?php echo $blog_category; ?>' 
+        document.getElementById('blog_desc').value  = '<?php echo $blog_description; ?>'
     </script>
   </html>
-  <script type="text/javascript">
-  	
-     function oldData()
-      {
-      	document.getElementById('blog_title').value = '<?php echo $blog_title ;?>'
-      	document.getElementById('blog_cat').value   = '<?php echo $blog_category; ?>' 
-      	document.getElementById('blog_desc').value  = '<?php echo $blog_description; ?>'
-      	 
-      }
-      oldData();
-     //  window.onload = oldData;
-  </script>
   
   

@@ -105,8 +105,9 @@ if(!isset($_SESSION['email']))
   {
     echo '<div class="container row blue-grey lighten-4" style="margin-top: 50px; color:white; background-color: #fff;transition: box-shadow .25s;border-radius: 2px;">';
       echo '<div class="col ">';
-        echo '<h3>No New Accounts</h3>';
+        echo '<h5>No New Accounts</h5>';
       echo'</div>';
+      echo '</div>';
   }
 
 ?>
