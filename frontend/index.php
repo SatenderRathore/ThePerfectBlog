@@ -44,7 +44,8 @@ $exec = mysqli_query($conn, $query);
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="index.php">Home</a></li>
-              <li><a href="signup_form.php">Enter</a></li>
+              <li><a href="signup_form.php">Sign Up</a></li>
+              <li><a href="login_form.php">Login</a></li>
               <li><a href="contactus.php">Contact Us</a></li>
               <li><a href="#"><i class="material-icons" id="search" onclick="activate()">search</i></a></li>
               <form class="right" id="search_with_details" style="display:none;">
@@ -59,7 +60,8 @@ $exec = mysqli_query($conn, $query);
               <li  style="height:100px;"><a href="index.php"><img src="#" alt="TPB icon"></a></li>
               <li></li>
               <li><a href="index.php">Home</a></li>
-              <li><a href="signup_form.php">Enter</a></li>
+              <li><a href="signup_form.php">Sign Up</a></li>
+              <li><a href="login_form.php">Login</a></li>
               <li><a href="contactus.php">Contact Us</a></li>
                   <!--<li class="search ">
                     <div class="search-wrapper card">
